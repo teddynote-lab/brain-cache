@@ -1,0 +1,144 @@
+reference:
+  label: Reference
+  permalink: /reference
+  description: 외부 아티클, 블로그 등 참고 자료 리뷰
+
+guideline:
+  label: Guideline
+  permalink: /guideline
+  description: 팀 내부 가이드라인, 실무 문서
+
+inner-seminar:
+  label: Inner Seminar
+  permalink: /inner-seminar
+  description: 팀 내부 세미나 발표 자료
+
+paper:
+  label: Paper
+  permalink: /paper
+  description: 학술 논문 관련 글
+
+llm:
+  label: LLM
+  permalink: /llm
+  description: Large Language Model 관련 글
+
+retrieval:
+  label: Retrieval
+  permalink: /retrieval
+  description: RAG, 검색, 임베딩 관련 글
+
+ai-agent:
+  label: AI Agent
+  permalink: /ai-agent
+  description: AI Agent, 자율 에이전트 관련 글
+
+evaluation:
+  label: Evaluation
+  permalink: /evaluation
+  description: LLM 평가, 벤치마크, Evals 관련 글
+
+infrastructure:
+  label: Infrastructure
+  permalink: /infrastructure
+  description: 인프라, 배포, GPU, 서빙 관련 글
+
+architecture:
+  label: Architecture
+  permalink: /architecture
+  description: 시스템 아키텍처, 설계 패턴 관련 글
+
+backend:
+  label: Backend
+  permalink: /backend
+  description: 백엔드 엔지니어링, FastAPI, DB 관련 글
+
+graph:
+  label: Graph & Ontology
+  permalink: /graph
+  description: 그래프, 온톨로지, 지식그래프 관련 글
+
+monitoring:
+  label: Monitoring
+  permalink: /monitoring
+  description: 모니터링, 옵저버빌리티 관련 글
+
+post-training:
+  label: Post Training
+  permalink: /post-training
+  description: 파인튜닝, RLHF, 후속 학습 관련 글
+
+cost-efficiency:
+  label: Cost Efficiency
+  permalink: /cost-efficiency
+  description: 비용 최적화, 효율성 관련 글
+
+mcp:
+  label: MCP
+  permalink: /mcp
+  description: Model Context Protocol 관련 글
+
+insight:
+  label: Insight
+  permalink: /insight
+  description: 인사이트, 트렌드 분석 관련 글
+
+growth:
+  label: Growth
+  permalink: /growth
+  description: 성장, 커리어, 팀 문화 관련 글
+
+xai:
+  label: XAI
+  permalink: /xai
+  description: 설명 가능한 AI 관련 글
+
+serving:
+  label: Serving
+  permalink: /serving
+  description: 모델 서빙, vLLM, 추론 최적화 관련 글
+
+deployment:
+  label: Deployment
+  permalink: /deployment
+  description: 배포, CI/CD 관련 글
+
+claude-code:
+  label: Claude Code
+  permalink: /claude-code
+  description: Claude Code, 바이브 코딩 관련 글
+
+optimizer:
+  label: Optimizer
+  permalink: /optimizer
+  description: DSPy, 프롬프트 최적화 관련 글
+
+paper-review:
+  label: Paper Review
+  permalink: /paper-review
+  description: 논문 리뷰, 논문 분석 관련 글
+
+oss-analysis:
+  label: OSS Analysis
+  permalink: /oss-analysis
+  description: 오픈소스 분석 관련 글
+
+project:
+  label: Project
+  permalink: /project
+  description: 프로젝트 관련 글
+
+ci-cd:
+  label: CI/CD
+  permalink: /ci-cd
+  description: CI/CD 파이프라인, 자동화 관련 글
+
+harness:
+  label: Harness Engineering
+  permalink: /harness
+  description: 하네스 엔지니어링, LLM 코딩 환경 관련 글
+
+vibe-coding:
+  label: Vibe Coding
+  permalink: /vibe-coding
+  description: 바이브 코딩, AI 지원 개발 관련 글

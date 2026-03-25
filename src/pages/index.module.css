@@ -1,0 +1,203 @@
+/* Hero - terminal/dev aesthetic */
+.heroBanner {
+  padding: 6rem 0 4rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background: #fafbfc;
+}
+
+[data-theme='dark'] .heroBanner {
+  background: #0d1117;
+}
+
+/* Subtle grid pattern background */
+.heroBanner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0, 158, 66, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 158, 66, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+
+[data-theme='dark'] .heroBanner::before {
+  background-image:
+    linear-gradient(rgba(0, 200, 83, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 200, 83, 0.05) 1px, transparent 1px);
+}
+
+.heroLogo {
+  width: 72px;
+  height: 72px;
+  margin-bottom: 1.5rem;
+}
+
+.heroLogoLight {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.heroLogoDark {
+  display: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+[data-theme='dark'] .heroLogoLight {
+  display: none;
+}
+
+[data-theme='dark'] .heroLogoDark {
+  display: block;
+}
+
+.heroTitle {
+  font-size: 3.2rem;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  color: #0d1117;
+  margin-bottom: 0.5rem;
+}
+
+[data-theme='dark'] .heroTitle {
+  color: #e6edf3;
+}
+
+/* Terminal-style prompt before tagline */
+.heroSubtitle {
+  font-size: 1.1rem;
+  color: #656d76;
+  margin-bottom: 2rem;
+  font-weight: 400;
+}
+
+.heroSubtitle::before {
+  content: '$ ';
+  color: var(--ifm-color-primary);
+  font-weight: 600;
+}
+
+[data-theme='dark'] .heroSubtitle {
+  color: #8b949e;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+/* Buttons - monospace feel */
+.buttons :global(.button) {
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+
+@media screen and (max-width: 996px) {
+  .heroBanner {
+    padding: 3rem 1.5rem;
+  }
+  .heroTitle {
+    font-size: 2.2rem;
+  }
+}
+
+/* Sections */
+.topics {
+  padding: 3rem 0 4rem;
+  background: #fff;
+}
+
+[data-theme='dark'] .topics {
+  background: #0d1117;
+}
+
+.sectionBlock {
+  margin-bottom: 3rem;
+}
+
+.sectionBlock:last-child {
+  margin-bottom: 0;
+}
+
+.sectionHeader {
+  margin-bottom: 1.5rem;
+}
+
+.topicsHeading {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+  letter-spacing: -0.03em;
+  color: var(--ifm-color-emphasis-800);
+}
+
+.topicsHeading::before {
+  content: '// ';
+  color: var(--ifm-color-primary);
+  font-weight: 400;
+}
+
+.sectionDesc {
+  font-size: 0.9rem;
+  color: var(--ifm-color-emphasis-600);
+  margin: 0;
+}
+
+.topicsGrid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0.75rem;
+}
+
+@media screen and (max-width: 996px) {
+  .topicsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .topicsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.topicCard {
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 6px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.15s ease;
+  background: transparent;
+  text-align: center;
+}
+
+.topicCard:hover {
+  border-color: var(--ifm-color-primary);
+  background: rgba(0, 158, 66, 0.03);
+  text-decoration: none;
+  color: inherit;
+}
+
+[data-theme='dark'] .topicCard:hover {
+  background: rgba(0, 200, 83, 0.05);
+}
+
+.topicTitle {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ifm-color-primary-darkest);
+  margin: 0;
+}
+
+[data-theme='dark'] .topicTitle {
+  color: var(--ifm-color-primary-light);
+}

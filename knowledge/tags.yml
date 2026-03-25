@@ -1,0 +1,34 @@
+rag:
+  label: RAG
+  permalink: /rag
+  description: RAG 관련 프로젝트 경험
+
+agent:
+  label: Agent
+  permalink: /agent
+  description: AI Agent 관련 프로젝트 경험
+
+evaluation:
+  label: Evaluation
+  permalink: /evaluation
+  description: 평가, 실험, 벤치마크 경험
+
+monitoring:
+  label: Monitoring
+  permalink: /monitoring
+  description: 모니터링, 로깅 관련 경험
+
+infrastructure:
+  label: Infrastructure
+  permalink: /infrastructure
+  description: 인프라, 배포, MLOps 경험
+
+data:
+  label: Data
+  permalink: /data
+  description: 데이터 처리, 포맷, 파이프라인 경험
+
+prompt-engineering:
+  label: Prompt Engineering
+  permalink: /prompt-engineering
+  description: 프롬프트 설계 관련 경험
