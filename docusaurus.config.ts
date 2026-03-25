@@ -14,7 +14,7 @@ const config: Config = {
   url: 'https://tech.brain-crew.com',
   baseUrl: '/',
 
-  organizationName: 'brain-crew',
+  organizationName: 'teddynote-lab',
   projectName: 'brain-cache',
 
   onBrokenLinks: 'warn',
@@ -112,7 +112,7 @@ const config: Config = {
           label: 'Guides',
         },
         {
-          href: 'https://github.com/brain-crew',
+          href: 'https://github.com/teddynote-lab',
           label: 'GitHub',
           position: 'right',
         },
@@ -142,7 +142,7 @@ const config: Config = {
           title: 'More',
           items: [
             {label: 'RSS Feed', href: '/blog/rss.xml'},
-            {label: 'GitHub', href: 'https://github.com/brain-crew'},
+            {label: 'GitHub', href: 'https://github.com/teddynote-lab'},
           ],
         },
       ],
