@@ -3,7 +3,7 @@ title: "LangSmith를 활용한 PoC Monitoring & Evaluation"
 description: "LangSmith는 LLM 애플리케이션의 PoC 단계에서 필수적인 모니터링과 평가를 지원하는 도구입니다. Chat UI 기반 서비스 배포 시, 실시간으로 프롬프트 성능을 추적하고 데이터셋 기반 평가를 수행할 수 있습니다. 이 가이드라인은 AI Research Engin"
 slug: langsmith를-활용한-poc-monitoring-evaluation
 date: 2025-12-17
-authors: [braincrew]
+authors: [jaehun]
 tags:
   - project
   - evaluation

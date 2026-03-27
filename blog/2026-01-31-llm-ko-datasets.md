@@ -3,7 +3,7 @@ title: "LLM-KO-Datasets"
 description: "LLM-Ko-Datasets는 한국어 LLM 개발을 위한 포괄적인 데이터셋 큐레이션 리포지토리입니다. Pre-training, SFT(Supervised Fine-Tuning), DPO(Direct Preference Optimization), RLHF(Reinforc"
 slug: llm-ko-datasets
 date: 2026-01-31
-authors: [braincrew]
+authors: [sungyeon]
 tags:
   - llm
   - reference

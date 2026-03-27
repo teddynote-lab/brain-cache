@@ -3,7 +3,7 @@ title: "Salesforce, Agent 정확도 높이기 위해 LLM 의존도 축소"
 description: "Salesforce가 AI 에이전트의 정확도와 신뢰성 확보를 위해 LLM 의존도를 줄이고 결정론적(deterministic) 접근 방식을 도입했다. LLM의 확률적 특성은 같은 입력에도 다른 결과를 내놓아 기업 운영에 부적합하며, 환각 문제와 높은 토큰 비용도 발생시켰"
 slug: salesforce-agent-정확도-높이기-위해-llm-의존도-축소
 date: 2025-12-26
-authors: [braincrew]
+authors: [jaehun]
 tags:
   - insight
   - reference

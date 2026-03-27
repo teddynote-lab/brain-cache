@@ -3,7 +3,7 @@ title: "Deep learning reading list from Ilya Sutskever"
 description: "OpenAI의 공동 창립자 Ilya Sutskever가 John Carmack에게 제시한 약 30편의 딥러닝 필독 논문 목록입니다. "
 slug: deep-learning-reading-list-from-ilya-sutskever
 date: 2026-02-13
-authors: [braincrew]
+authors: [sungyeon]
 tags:
   - llm
   - paper-review

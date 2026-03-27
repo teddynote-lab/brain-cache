@@ -1,0 +1,14 @@
+retrospective:
+  label: Retrospective
+  permalink: /retrospective
+  description: 프로젝트 회고
+
+architecture:
+  label: Architecture
+  permalink: /architecture
+  description: 아키텍처 설계 및 선택 배경
+
+decision-log:
+  label: Decision Log
+  permalink: /decision-log
+  description: 의사결정 기록

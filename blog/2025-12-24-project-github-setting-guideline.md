@@ -3,7 +3,7 @@ title: "Project Github Setting Guideline"
 description: "AI/ML 프로젝트에서 긴급 이슈 발생 시 VM에 직접 접속해 코드를 수정하거나, 작업 이력 추적이 미흡한 문제를 해결하기 위한 GitHub 프로젝트 설정 가이드입니다. main/dev 브랜치 이원화, branch protection rule, squash merge,"
 slug: project-github-setting-guideline
 date: 2025-12-24
-authors: [braincrew]
+authors: [jaehun]
 tags:
   - project
   - guideline

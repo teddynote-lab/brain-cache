@@ -3,7 +3,7 @@ title: "Optimizing Compound Retrieval Systems"
 description: "Compound Retrieval Systems는 여러 검색 방법을 결합하여 성능을 향상시키는 시스템이지만, 각 구성 요소의 최적 조합을 찾는 것은 복잡한 문제입니다. 본 논문은 compound retrieval의 성능을 체계적으로 최적화하는 방법론을 제시하며, spa"
 slug: optimizing-compound-retrieval-systems
 date: 2025-12-17
-authors: [braincrew]
+authors: [jaehun]
 tags:
   - retrieval
   - paper-review

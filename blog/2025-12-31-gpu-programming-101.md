@@ -3,7 +3,7 @@ title: "GPU Programming 101"
 description: "GPU 프로그래밍은 CPU와 근본적으로 다른 병렬 처리 아키텍처를 활용하는 기술입니다. CPU가 순차적 처리에 최적화된 반면, GPU는 수천 개의 코어로 대규모 병렬 연산을 수행합니다. AI Research Engineer라면 딥러닝 모델 학습 최적화를 위해 GPU의 "
 slug: gpu-programming-101
 date: 2025-12-31
-authors: [braincrew]
+authors: [jaehun]
 tags:
   - backend
   - architecture

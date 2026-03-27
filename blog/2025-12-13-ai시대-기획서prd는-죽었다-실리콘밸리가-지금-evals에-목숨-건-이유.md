@@ -3,7 +3,7 @@ title: "AI시대 기획서(PRD)는 죽었다. 실리콘밸리가 지금 "
 description: "실리콘밸리 AI 프로덕트 개발의 핵심이 "
 slug: ai시대-기획서prd는-죽었다-실리콘밸리가-지금-evals에-목숨-건-이유
 date: 2025-12-13
-authors: [braincrew]
+authors: [jaehun]
 tags:
   - evaluation
   - reference

@@ -3,7 +3,7 @@ title: "Oh-My-OpenCode 장기분석"
 description: "Oh-My-OpenCode는 최근 화제가 된 오픈소스 프로젝트로, 코드 레벨에서의 심층 분석이 필요한 도구입니다. 본 문서는 해당 프로젝트의 내부 동작 원리를 상세히 파헤쳐 AI Research Engineer들이 실무에 적용할 수 있는 인사이트를 제공합니다. 코드 레"
 slug: oh-my-opencode-장기분석
 date: 2026-01-19
-authors: [braincrew]
+authors: [jaehun]
 tags:
   - oss-analysis
   - reference

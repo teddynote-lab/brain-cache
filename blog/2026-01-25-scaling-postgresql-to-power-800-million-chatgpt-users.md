@@ -3,7 +3,7 @@ title: "Scaling PostgreSQL to power 800 million ChatGPT users"
 description: "OpenAI는 ChatGPT와 API를 지원하기 위해 단일 Primary PostgreSQL 인스턴스와 50개의 Read Replica를 활용해 80만 사용자를 지원하며, 연간 10배 이상의 트래픽 증가를 처리하고 있습니다. MVCC(Multi-Version Concu"
 slug: scaling-postgresql-to-power-800-million-chatgpt-users
 date: 2026-01-25
-authors: [braincrew]
+authors: [jaehun]
 tags:
   - backend
   - optimizer

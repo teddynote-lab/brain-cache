@@ -30,8 +30,8 @@ function HomepageHeader() {
           <Link className="button button--primary button--lg" to="/blog">
             Library
           </Link>
-          <Link className="button button--outline button--lg" to="/knowledge">
-            Knowledge
+          <Link className="button button--outline button--lg" to="/lab">
+            Lab
           </Link>
         </div>
       </div>
@@ -55,17 +55,37 @@ const SECTIONS = [
     ],
   },
   {
-    id: 'knowledge',
-    heading: 'Knowledge',
-    description: '프로젝트 실전 경험에서 얻은 인사이트, 문제 해결 과정, 의사결정 맥락을 공유',
-    link: '/knowledge',
+    id: 'lab',
+    heading: 'Lab',
+    description: '직접 실험하고 리서치한 결과물 — Research, Experiments, Knowledge 통합',
+    link: '/lab',
     topics: [
-      {title: 'RAG', link: '/knowledge/tags/rag'},
-      {title: 'Agent', link: '/knowledge/tags/agent'},
-      {title: 'Evaluation', link: '/knowledge/tags/evaluation'},
-      {title: 'Monitoring', link: '/knowledge/tags/monitoring'},
-      {title: 'Data', link: '/knowledge/tags/data'},
-      {title: 'Infrastructure', link: '/knowledge/tags/infrastructure'},
+      {title: 'RAG', link: '/lab/tags/rag'},
+      {title: 'Agent', link: '/lab/tags/agent'},
+      {title: 'Evaluation', link: '/lab/tags/evaluation'},
+      {title: 'Monitoring', link: '/lab/tags/monitoring'},
+      {title: 'Data', link: '/lab/tags/data'},
+      {title: 'Infrastructure', link: '/lab/tags/infrastructure'},
+    ],
+  },
+  {
+    id: 'projects',
+    heading: 'Projects',
+    description: '회사 프로젝트 회고와 의사결정 기록, 아키텍처 선택 배경을 공유',
+    link: '/projects',
+    topics: [
+      {title: 'Retrospective', link: '/projects/tags/retrospective'},
+      {title: 'Architecture', link: '/projects/tags/architecture'},
+      {title: 'Decision Log', link: '/projects/tags/decision-log'},
+    ],
+  },
+  {
+    id: 'seminar',
+    heading: 'Seminar',
+    description: '팀 내부 세미나 발표자료, 스터디 정리, 워크숍 기록',
+    link: '/seminar',
+    topics: [
+      {title: 'All Seminars', link: '/seminar'},
     ],
   },
 ];

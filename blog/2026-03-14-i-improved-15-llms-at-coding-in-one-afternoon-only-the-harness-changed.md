@@ -3,7 +3,7 @@ title: "I Improved 15 LLMs at Coding in One Afternoon. Only the Harness Changed.
 description: "보안 연구자 Can Boluk는 LLM의 코드 편집 인터페이스(하네스)만 개선하여 16개 모델의 성능을 극적으로 향상시켰다. "
 slug: i-improved-15-llms-at-coding-in-one-afternoon-only-the-harness-changed
 date: 2026-03-14
-authors: [braincrew]
+authors: [sungyeon]
 tags:
   - harness
   - reference

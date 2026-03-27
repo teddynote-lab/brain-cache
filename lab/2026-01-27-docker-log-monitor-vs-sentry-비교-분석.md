@@ -3,7 +3,7 @@ title: "Docker Log Monitor vs Sentry 비교 분석"
 description: "Docker Log Monitor는 설치가 간단하고 비용이 들지 않으며 코드 수정 없이 즉시 사용 가능한 반면, Sentry는 풍부한 에러 컨텍스트와 분석 도구를 제공하지만 SDK 통합과 비용이 필요합니다. LG Electronics Agent 프로젝트의 경우, 이미 "
 slug: docker-log-monitor-vs-sentry-비교-분석
 date: 2026-01-27
-authors: [braincrew]
+authors: [sungyeon]
 tags:
   - agent
 source_url: "https://github.com/teddynote-lab/docker-log-monitor"

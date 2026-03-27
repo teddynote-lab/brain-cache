@@ -3,7 +3,7 @@ title: "Which tabular format RAG Process understands very well?"
 description: "RAG 파이프라인에서 테이블 데이터의 포맷이 검색 성능에 미치는 영향을 실험한 결과, Markdown Key-Value 형식이 가장 높은 Recall을 보였으며, TOON 포맷은 토큰 효율성 측면에서 가장 우수했습니다. AIHub의 표 정보 질의응답 데이터 50개를 7"
 slug: which-tabular-format-rag-process-understands-very-well
 date: 2026-01-11
-authors: [braincrew]
+authors: [jaehun]
 tags:
   - data
 source_url: "https://www.ncloud-forums.com/topic/594/"

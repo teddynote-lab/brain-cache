@@ -3,7 +3,7 @@ title: "How we vibe code at a FAANG."
 description: "FAANG 기업의 AI 보조 코딩 사례는 "
 slug: how-we-vibe-code-at-a-faang
 date: 2026-02-01
-authors: [braincrew]
+authors: [sungyeon]
 tags:
   - project
   - reference

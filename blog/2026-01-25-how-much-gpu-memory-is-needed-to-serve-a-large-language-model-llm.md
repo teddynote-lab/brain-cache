@@ -3,7 +3,7 @@ title: "How Much GPU Memory is Needed to Serve a Large Language Model (LLM)?"
 description: "LLM 서빙에 필요한 GPU 메모리는 `M = (P × 4B × Q) / 32 × 1.2` 공식으로 계산할 수 있습니다. 여기서 P는 파라미터 수, Q는 정밀도(16 or 32bit), 1.2는 추론 시 활성화 함수 등을 위한 20% 오버헤드입니다. 예를 들어 70B "
 slug: how-much-gpu-memory-is-needed-to-serve-a-large-language-model-llm
 date: 2026-01-25
-authors: [braincrew]
+authors: [jaehun]
 tags:
   - llm
   - serving

@@ -3,7 +3,7 @@ title: "LLM Post Training"
 description: "LLM Post Training은 사전학습된 언어 모델을 실제 사용 가능한 AI 어시스턴트로 변환하는 핵심 과정입니다. Supervised Fine-Tuning(SFT)으로 instruction-following 능력을 학습한 후, Reinforcement Learni"
 slug: llm-post-training
 date: 2026-03-06
-authors: [braincrew]
+authors: [jaehun]
 tags:
   - llm
   - post-training

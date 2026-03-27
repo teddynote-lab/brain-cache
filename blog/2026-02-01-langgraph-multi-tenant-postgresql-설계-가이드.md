@@ -3,7 +3,7 @@ title: "LangGraph Multi-Tenant PostgreSQL 설계 가이드"
 description: "LangGraph 기반 Multi-Tenant 시스템을 PostgreSQL로 구축할 때 사용할 수 있는 5가지 격리 전략을 비교 분석합니다. Thread ID + Namespace 방식은 낮은 복잡도로 빠르게 시작 가능하며, Row Level Security(RLS)는"
 slug: langgraph-multi-tenant-postgresql-설계-가이드
 date: 2026-02-01
-authors: [braincrew]
+authors: [sungyeon]
 tags:
   - architecture
   - guideline

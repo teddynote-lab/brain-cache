@@ -3,7 +3,7 @@ title: "The Big LLM Architecture Comparison"
 description: "DeepSeek V3는 2024년 말 등장한 이래 LLM 아키텍처의 새로운 방향을 제시했습니다. 7년 전 원조 GPT 이후 구조적으로는 크게 변하지 않았지만, Multi-Head Latent Attention(MLA)과 Mixture-of-Experts(MoE) 같은 "
 slug: the-big-llm-architecture-comparison
 date: 2026-01-05
-authors: [braincrew]
+authors: [jaehun]
 tags:
   - llm
   - architecture

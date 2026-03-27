@@ -3,7 +3,7 @@ title: "Is TOON really saving you tokens?"
 description: "TOON(Token-Oriented Object Notation)은 LLM 프롬프트의 토큰 효율성을 높이는 포맷이지만, 만능 솔루션은 아닙니다. 평면적(flat)이고 균일한 데이터에서는 JSON 대비 30-60% 토큰을 절약하지만, 깊게 중첩된(deeply nested"
 slug: is-toon-really-saving-you-tokens
 date: 2025-12-13
-authors: [braincrew]
+authors: [jaehun]
 tags:
   - cost-efficiency
   - reference

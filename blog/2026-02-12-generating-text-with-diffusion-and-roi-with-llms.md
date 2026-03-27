@@ -3,7 +3,7 @@ title: "Generating text with diffusion (and ROI with LLMs)"
 description: "디퓨전(diffusion) 기반 LLM은 기존 오토리그레시브 방식과 달리 여러 토큰을 병렬로 생성·정제하여 5~10배 빠른 추론 속도를 제공합니다. 이미지 생성에 혁신을 가져온 디퓨전 기술이 텍스트 생성으로 확장되고 있으며, 내장된 오류 수정 메커니즘과 메모리 대역폭 "
 slug: generating-text-with-diffusion-and-roi-with-llms
 date: 2026-02-12
-authors: [braincrew]
+authors: [sungyeon]
 tags:
   - llm
   - reference

@@ -3,7 +3,7 @@ title: "LLM Architecture Gallery"
 description: "Sebastian Raschka가 운영하는 LLM Architecture Gallery는 GPT-2부터 최신 Frontier 모델까지 주요 LLM들의 아키텍처를 시각화하여 비교할 수 있는 참고 자료입니다. 각 모델의 파라미터 규모, 컨텍스트 길이, 어텐션 메커니즘, 디"
 slug: llm-architecture-gallery
 date: 2026-03-15
-authors: [braincrew]
+authors: [jaehun]
 tags:
   - llm
   - architecture

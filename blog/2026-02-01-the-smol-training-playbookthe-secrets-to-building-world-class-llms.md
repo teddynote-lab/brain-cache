@@ -3,7 +3,7 @@ title: "The Smol Training Playbook:The Secrets to Building World-Class LLMs"
 description: "Hugging Face가 공개한 400페이지 분량의 "
 slug: the-smol-training-playbookthe-secrets-to-building-world-class-llms
 date: 2026-02-01
-authors: [braincrew]
+authors: [sungyeon]
 tags:
   - llm
   - reference

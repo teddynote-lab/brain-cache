@@ -3,7 +3,7 @@ title: "Introducing Claude Opus 4.6"
 description: "Anthropic이 2026년 2월 5일 발표한 Claude Opus 4.6은 코딩 능력을 대폭 강화한 최상위 모델입니다. Opus급 최초로 1M 토큰 컨텍스트 윈도우를 지원하며, 컨텍스트 부패 문제를 크게 개선했습니다(MRCR v2에서 76% 달성). Terminal"
 slug: introducing-claude-opus-46
 date: 2026-02-12
-authors: [braincrew]
+authors: [sungyeon]
 tags:
   - llm
   - reference

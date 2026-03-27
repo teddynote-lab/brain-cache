@@ -3,7 +3,7 @@ title: "What Actually Makes you Senior"
 description: "시니어 엔지니어를 정의하는 핵심은 코딩 실력이나 기술 스택이 아니라 **'모호함을 줄이는 능력(Reducing Ambiguity)'**입니다. 중간급 엔지니어가 명확한 명세를 받아 뛰어난 결과물을 만든다면, 시니어는 불분명한 요구사항을 분석하고 실행 가능한 구체적 계획"
 slug: what-actually-makes-you-senior
 date: 2025-12-24
-authors: [braincrew]
+authors: [jaehun]
 tags:
   - growth
   - reference

@@ -3,7 +3,7 @@ title: "Context Engineering for AI Agents: Lessons from Building Manus"
 description: "AI 에이전트 개발에서 컨텍스트 엔지니어링은 모델 파인튜닝보다 빠른 반복과 확장성을 제공한다. Manus 팀은 KV-cache 히트율을 핵심 지표로 삼아 지연시간과 비용을 최적화했으며, 프롬프트 접두사 안정화, 추가 전용 컨텍스트 설계, 명시적 캐시 중단점 설정 등의 "
 slug: context-engineering-for-ai-agents-lessons-from-building-manus
 date: 2026-03-23
-authors: [braincrew]
+authors: [sungyeon]
 tags:
   - insight
   - reference

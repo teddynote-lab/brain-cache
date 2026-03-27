@@ -3,7 +3,7 @@ title: "You don’t need Elasticsearch : BM25 is now in Postgres"
 description: "Postgres의 기본 전문 검색(Full-Text Search)은 키워드 반복 남용, 문서 길이 편향, 희귀 단어 처리 실패 등의 문제로 실무에서 한계가 있었습니다. 이를 해결하기 위해 Elasticsearch를 추가하는 것이 일반적이었지만, 이제 `pg_textse"
 slug: you-dont-need-elasticsearch-bm25-is-now-in-postgres
 date: 2025-12-26
-authors: [braincrew]
+authors: [jaehun]
 tags:
   - retrieval
   - architecture

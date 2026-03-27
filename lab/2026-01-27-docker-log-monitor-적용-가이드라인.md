@@ -3,7 +3,7 @@ title: "Docker Log Monitor 적용 가이드라인"
 description: "EC2 환경에서 Docker 컨테이너 로그를 실시간 모니터링하고 에러 발생 시 Slack으로 알림을 보내는 경량 모니터링 시스템 구축 경험을 공유합니다. Sentry 같은 무거운 솔루션 대신, Python 기반의 간단한 스크립트로 실시간 로그 감지, 중복 알림 방지, "
 slug: docker-log-monitor-적용-가이드라인
 date: 2026-01-27
-authors: [braincrew]
+authors: [sungyeon]
 tags:
   - agent
 source_url: "https://api.slack.com/apps"

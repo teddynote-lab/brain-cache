@@ -3,7 +3,7 @@ title: "여러분은 AI Service에 대해 얼마나 알고 계신가요?"
 description: "RAG에서 AI Agent로 빠르게 전환되는 시점에서, 실무자는 LLM·RAG·Agent의 본질적 개념을 정확히 이해해야 한다. Gen.AI 서비스는 기술·BM·아키텍처 관점에서 다층적으로 분류되며, 기존 서비스 대비 복잡도가 높다. 효과적인 서비스 구축을 위해서는 서"
 slug: 여러분은-ai-service에-대해-얼마나-알고-계신가요
 date: 2026-02-21
-authors: [braincrew]
+authors: [jaehun]
 tags:
   - ai-agent
   - reference

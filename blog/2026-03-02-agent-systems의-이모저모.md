@@ -3,7 +3,7 @@ title: "Agent Systems의 이모저모"
 description: "AI Agent 시스템은 메신저 기반의 접근성(Manus Agents)부터 로컬 학습 시스템(PAI)까지 빠르게 진화 중입니다. 특히 메신저 환경에서 QR 코드 스캔만으로 동작하는 Manus Agents는 설정 복잡도를 제거하며 대중화를 노리고, PAI는 로컬 데이터 "
 slug: agent-systems의-이모저모
 date: 2026-03-02
-authors: [braincrew]
+authors: [jaehun]
 tags:
   - ai-agent
   - reference

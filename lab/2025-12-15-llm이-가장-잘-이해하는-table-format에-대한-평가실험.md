@@ -3,7 +3,7 @@ title: "LLM이 가장 잘 이해하는 Table Format에 대한 평가실험"
 description: "재무제표 데이터를 LLM에 전달할 때 데이터 포맷에 따라 성능과 비용이 크게 달라집니다. 11가지 포맷을 비교한 결과, TSV(tab-separated) 포맷이 정확도 100%, 최소 토큰 사용(7,192개), 최단 응답시간(8.24초)으로 모든 지표에서 최고 성능을 "
 slug: llm이-가장-잘-이해하는-table-format에-대한-평가실험
 date: 2025-12-15
-authors: [braincrew]
+authors: [sungyeon]
 tags:
   - evaluation
 source_url: "https://www.improvingagents.com/blog/best-input-data-format-for-llms?cmid=34b34591-5868-43e7-8016-bbb6fbea4bf1"

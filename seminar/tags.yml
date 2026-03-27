@@ -1,0 +1,9 @@
+seminar:
+  label: Seminar
+  permalink: /seminar
+  description: 팀 세미나 발표자료
+
+retrieval:
+  label: Retrieval
+  permalink: /retrieval
+  description: 검색, RAG, 인덱싱 관련 세미나

@@ -3,7 +3,7 @@ title: "LangFlow OSS 분석"
 description: "Langflow는 MIT 라이선스 기반의 오픈소스 Python 프레임워크로, AI 워크플로우를 시각적으로 빠르게 구축할 수 있는 low-code 플랫폼입니다. n8n이나 Dify와 달리 컴포넌트의 완전한 커스터마이징이 가능하며, 드래그 앤 드롭 방식으로 Agent와 R"
 slug: langflow-oss-분석
 date: 2025-12-26
-authors: [braincrew]
+authors: [jaehun]
 tags:
   - oss-analysis
   - reference
