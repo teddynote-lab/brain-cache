@@ -182,7 +182,7 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'guideSidebar',
           position: 'left',
-          label: 'Guides',
+          label: 'About',
         },
         {
           href: 'https://github.com/teddynote-lab',
