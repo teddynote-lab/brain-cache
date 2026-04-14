@@ -1,6 +1,5 @@
 import type {ReactNode} from 'react';
 import Layout from '@theme/Layout';
-import Link from '@docusaurus/Link';
 
 import styles from './about.module.css';
 
@@ -11,7 +10,6 @@ const TEAM = [
     name: '김성연',
     nameEn: 'Sungyeon',
     role: 'AI Research Engineer',
-    focus: 'RAG 파이프라인 설계, 검색 최적화, 평가 시스템',
     image: '/img/authors/sungyeon.jpeg',
     github: 'https://github.com/seongyeon1',
   },
@@ -19,28 +17,24 @@ const TEAM = [
     name: '최재훈',
     nameEn: 'Jaehun',
     role: 'AI Research Engineer',
-    focus: 'LLM 애플리케이션, 에이전트 시스템, 프롬프트 엔지니어링',
     image: '/img/authors/jaehun.png',
   },
   {
     name: '강민석',
     nameEn: 'Mason',
     role: 'AI Research Engineer',
-    focus: '백엔드 엔지니어링, 인프라 구축, 모델 서빙',
     image: '/img/authors/mason.jpeg',
   },
   {
     name: '김태한',
     nameEn: 'Hank',
     role: 'AI Research Engineer',
-    focus: '논문 리서치, 검색 알고리즘, 임베딩 최적화',
     image: '/img/authors/hank.png',
   },
   {
     name: '신승엽',
     nameEn: 'Dante',
     role: 'AI Research Engineer',
-    focus: 'AI 에이전트, 평가 시스템, MLOps',
     image: '/img/authors/dante.png',
   },
 ];
@@ -77,8 +71,16 @@ function HeroSection() {
   return (
     <section className={styles.hero}>
       <div className={styles.heroInner}>
-        <div className={styles.heroBadge}>About</div>
-        <h1 className={styles.heroTitle}>Brain Crew</h1>
+        <img
+          src="/img/braincrew-wordmark.svg"
+          alt="Brain Crew"
+          className={`${styles.heroLogo} ${styles.heroLogoLight}`}
+        />
+        <img
+          src="/img/braincrew-wordmark-white.svg"
+          alt="Brain Crew"
+          className={`${styles.heroLogo} ${styles.heroLogoDark}`}
+        />
         <p className={styles.heroDesc}>
           기업이 AI를 실질적으로 활용할 수 있도록 돕는 AI 전문 기업입니다.
           <br />
@@ -135,7 +137,6 @@ function TeamSection() {
                   <span className={styles.teamNameEn}>{member.nameEn}</span>
                 </h3>
                 <span className={styles.teamRole}>{member.role}</span>
-                <p className={styles.teamFocus}>{member.focus}</p>
                 {member.github && (
                   <a href={member.github} target="_blank" rel="noopener noreferrer" className={styles.teamLink}>
                     GitHub

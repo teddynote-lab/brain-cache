@@ -18,27 +18,29 @@
   padding: 0 1.5rem;
 }
 
-.heroBadge {
-  display: inline-block;
-  font-size: 0.7rem;
-  font-weight: 600;
-  font-family: var(--ifm-font-family-monospace);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--ifm-color-primary);
-  margin-bottom: 1rem;
+.heroLogo {
+  height: 48px;
+  margin-bottom: 1.5rem;
 }
 
-.heroBadge::before {
-  content: '// ';
+.heroLogoLight {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.heroTitle {
-  font-size: 2.5rem;
-  font-weight: 800;
-  letter-spacing: -0.05em;
-  font-family: var(--ifm-font-family-monospace);
-  margin-bottom: 1rem;
+.heroLogoDark {
+  display: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+[data-theme='dark'] .heroLogoLight {
+  display: none;
+}
+
+[data-theme='dark'] .heroLogoDark {
+  display: block;
 }
 
 .heroDesc {
@@ -173,13 +175,13 @@
 
 .teamGrid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 1rem;
 }
 
 @media (max-width: 768px) {
   .teamGrid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -258,13 +260,6 @@
   text-transform: uppercase;
   letter-spacing: 0.03em;
   margin-bottom: 0.5rem;
-}
-
-.teamFocus {
-  font-size: 0.78rem;
-  color: var(--ifm-color-emphasis-500);
-  line-height: 1.5;
-  margin: 0 0 0.5rem 0;
 }
 
 .teamLink {
