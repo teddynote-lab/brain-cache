@@ -193,8 +193,25 @@ const config: Config = {
     },
     footer: {
       style: 'dark',
-      links: [],
-      copyright: `© ${new Date().getFullYear()} Brain Crew · Built with Docusaurus`,
+      links: [
+        {
+          label: 'Homepage',
+          href: 'https://brain-crew.com/',
+        },
+        {
+          label: 'Career',
+          href: 'https://brain-crew.com/apply/rag',
+        },
+        {
+          label: 'GitHub',
+          href: 'https://github.com/teddynote-lab',
+        },
+        {
+          label: 'RSS Feed',
+          href: '/brain-cache/blog/rss.xml',
+        },
+      ],
+      copyright: `© ${new Date().getFullYear()} 브레인크루(주) · 대표이사 이경록<br/>경기도 성남시 분당구 정자로 2, 1602호 · dev@brain-crew.com`,
     },
     prism: {
       theme: prismThemes.github,

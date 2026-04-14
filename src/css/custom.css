@@ -821,7 +821,7 @@ article .markdown table tr:hover td {
 .footer--dark {
   background-color: #0d1117;
   border-top: 1px solid #21262d;
-  padding: 1rem 0;
+  padding: 1.25rem 0;
 }
 
 .footer .container {
@@ -829,13 +829,42 @@ article .markdown table tr:hover td {
   padding-bottom: 0;
 }
 
+/* Simple footer links - horizontal inline */
+.footer .footer__links {
+  margin-bottom: 0.75rem;
+}
+
+.footer .footer__links .footer__item {
+  margin-right: 0;
+}
+
+.footer .footer__links .footer__link-item {
+  font-size: 0.82rem;
+  font-family: var(--ifm-font-family-monospace);
+  color: #8b949e;
+  transition: color 0.15s ease;
+}
+
+.footer .footer__links .footer__link-item:hover {
+  color: var(--ifm-color-primary-light);
+  text-decoration: none;
+}
+
+/* Separator between links */
+.footer .footer__links .footer__link-separator::after {
+  color: #30363d;
+}
+
 .footer__bottom {
   margin-top: 0;
+  padding-top: 0.75rem;
+  border-top: 1px solid #21262d;
 }
 
 .footer__copyright {
-  font-size: 0.8rem;
-  opacity: 0.7;
+  font-size: 0.75rem;
+  color: #484f58;
+  line-height: 1.6;
 }
 
 /* ── Back to top button ────────────────────── */
