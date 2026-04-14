@@ -8,6 +8,13 @@ import styles from './about.module.css';
 
 const TEAM = [
   {
+    name: '최재훈',
+    nameEn: 'Jaehun',
+    role: 'Team Lead',
+    image: '/img/authors/jaehun.png',
+    github: 'https://github.com/ash-hun',
+  },
+  {
     name: '김성연',
     nameEn: 'Sungyeon',
     role: 'AI Research Engineer',
@@ -15,28 +22,25 @@ const TEAM = [
     github: 'https://github.com/seongyeon1',
   },
   {
-    name: '최재훈',
-    nameEn: 'Jaehun',
-    role: 'Team Lead',
-    image: '/img/authors/jaehun.png',
-  },
-  {
     name: '강민석',
     nameEn: 'Mason',
     role: 'AI Research Engineer',
     image: '/img/authors/mason.jpeg',
+    github: 'https://github.com/myeolinmalchi',
   },
   {
     name: '김태한',
     nameEn: 'Hank',
     role: 'AI Research Engineer',
     image: '/img/authors/hank.png',
+    github: 'https://github.com/hank-kim97',
   },
   {
     name: '신승엽',
     nameEn: 'Dante',
     role: 'AI Research Engineer',
     image: '/img/authors/dante.png',
+    github: 'https://github.com/syshin0116',
   },
 ];
 
