@@ -178,12 +178,7 @@ const config: Config = {
         {to: '/posts?tab=Lab', label: 'Lab', position: 'left'},
         {to: '/posts?tab=Projects', label: 'Projects', position: 'left'},
         {to: '/posts?tab=Seminar', label: 'Seminar & Paper', position: 'left'},
-        {
-          type: 'docSidebar',
-          sidebarId: 'guideSidebar',
-          position: 'left',
-          label: 'About',
-        },
+        {to: '/about', label: 'About', position: 'left'},
         {
           href: 'https://github.com/teddynote-lab',
           label: 'GitHub',
