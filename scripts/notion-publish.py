@@ -552,7 +552,17 @@ def run_cmd(cmd: str, cwd: str | None = None) -> str:
     return result.stdout.strip()
 
 
-def create_pr(branch: str, title: str, files: list[str], notion_page_id: str = "") -> str | None:
+def create_pr(
+    branch: str,
+    title: str,
+    files: list[str],
+    notion_page_id: str = "",
+    tldr: str = "",
+    doc_type: str = "",
+    categories: list | str = "",
+    authors: str = "",
+    word_count: int = 0,
+) -> str | None:
     """Git 브랜치 생성 + 커밋 + PR."""
     cwd = str(PROJECT_ROOT)
     run_cmd("git checkout main", cwd)
@@ -564,10 +574,25 @@ def create_pr(branch: str, title: str, files: list[str], notion_page_id: str = "
     run_cmd(f"git push origin {branch}", cwd)
 
     notion_url = f"https://www.notion.so/{notion_page_id.replace('-', '')}" if notion_page_id else ""
+    reading_min = max(1, word_count // 500) if word_count else "?"
+    tags_str = ", ".join(categories) if isinstance(categories, list) else categories
+
     body = (
-        f"Notion에서 자동 생성된 블로그 글입니다.\n\n"
-        f"리뷰 후 머지해주세요.\n\n"
-        f"**Notion 원본**: {notion_url}\n\n"
+        f"## Summary\n"
+        f"> {tldr}\n\n"
+        f"## Meta\n"
+        f"| | |\n|---|---|\n"
+        f"| **Category** | {doc_type} |\n"
+        f"| **Tags** | {tags_str} |\n"
+        f"| **Author** | {authors} |\n"
+        f"| **Reading time** | ~{reading_min}min |\n"
+        f"| **Notion** | [원본 보기]({notion_url}) |\n\n"
+        f"## Review Checklist\n"
+        f"- [ ] TL;DR이 글 내용을 정확히 요약하는가\n"
+        f"- [ ] 태그가 적절한가\n"
+        f"- [ ] 이미지가 정상 표시되는가\n"
+        f"- [ ] 민감 정보가 포함되어 있지 않은가\n\n"
+        f"---\n"
         f"notion_page_id: {notion_page_id}"
     )
     result = subprocess.run(
@@ -694,7 +719,17 @@ def publish(page_id: Optional[str] = None, dry_run: bool = False):
             if (PROJECT_ROOT / img_dir).exists():
                 files_to_add.append(img_dir)
 
-            pr_url = create_pr(branch, title[:60], files_to_add, notion_page_id=page["id"])
+            tldr = extract_tldr(blog_body)
+            word_count = len(full_md)
+            pr_url = create_pr(
+                branch, title[:60], files_to_add,
+                notion_page_id=page["id"],
+                tldr=tldr,
+                doc_type=doc_type,
+                categories=categories,
+                authors=authors,
+                word_count=word_count,
+            )
             if pr_url:
                 log.info("PR 생성: %s", pr_url)
             else:

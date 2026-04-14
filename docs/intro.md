@@ -1,72 +1,36 @@
 ---
 sidebar_position: 1
+title: About Brain Cache
 ---
 
 # Brain Cache
 
-Brain Crew의 AI Research & Engineering 기술 블로그입니다.
+**Brain Crew**의 AI Research & Engineering 기술 블로그입니다.
 
-실무에서 축적한 인사이트, 가이드라인, 논문 리뷰, 프로젝트 경험을 공유합니다.
+실무에서 축적한 인사이트, 논문 리뷰, 실험 결과, 프로젝트 경험을 정리하고 공유합니다.
 
-## Content
+## Brain Crew
+
+Brain Crew는 기업이 AI를 실질적으로 활용할 수 있도록 돕는 AI 전문 기업입니다. RAG, LLM Agent, 평가 시스템 등 AI 핵심 기술을 연구하고, 이를 기반으로 엔터프라이즈 솔루션을 구축합니다.
+
+- **홈페이지**: [brain-crew.com](https://brain-crew.com)
+- **채용**: [brain-crew.com/apply](https://brain-crew.com/apply)
+- **GitHub**: [github.com/teddynote-lab](https://github.com/teddynote-lab)
+
+## 콘텐츠 구조
 
 | 섹션 | 설명 |
 |------|------|
-| [Library](/blog) | 외부 아티클, 논문 리뷰, 기술 레퍼런스를 AI Research Engineer 관점에서 큐레이션 |
-| [Lab](/lab) | 직접 실험하고 리서치한 결과물 — Research, Experiments, Knowledge를 통합 |
-| [Projects](/projects) | 회사 프로젝트 단위의 회고와 의사결정 기록 |
-| [Seminar](/seminar) | 팀 내부 세미나 발표자료 및 스터디 정리 |
-| Guides | 팀 내부 가이드라인, 실무 노하우 문서 (이 섹션) |
+| **Library** | 외부 아티클, 논문 리뷰, 기술 레퍼런스 큐레이션 |
+| **Lab** | 직접 실험하고 리서치한 결과물 |
+| **Projects** | 프로젝트 회고와 의사결정 기록 |
+| **Seminar & Paper** | 세미나 발표자료, 논문 리뷰, 스터디 정리 |
 
-## 분류 기준: 콘텐츠의 원천(Origin)
-
-콘텐츠가 **어디서 시작되었는가**를 기준으로 4개 영역을 나눕니다.
-
-| 기준 | 메뉴 |
-|------|------|
-| 외부에서 가져온 지식 → 읽고 해석한 것 | **Library** |
-| 내가 직접 만든 실험/연구 → 직접 실험하고 발견한 것 | **Lab** |
-| 회사 프로젝트에서 나온 회고 → 프로젝트에서 배운 것 | **Projects** |
-| 팀과 함께 나눈 발표 → 팀과 나눈 것 | **Seminar** |
-
-### 판별 플로우
-
-```
-Q1. 팀 앞에서 발표한 자료인가?        → Yes → Seminar
-Q2. 특정 회사 프로젝트의 회고인가?     → Yes → Projects
-Q3. 직접 코드를 짜거나 실험을 돌렸는가? → Yes → Lab
-Q4. 외부 자료를 읽고 정리/해석한 것인가? → Yes → Library
-```
-
-순서대로 질문하면 항상 하나의 메뉴에 도달합니다.
-
-### 각 메뉴 상세
-
-**Library** — 외부 소스 기반 큐레이션 + 내 해석. 외부 아티클 리뷰, 논문 리뷰, 기술 레퍼런스 정리, Document Hub 중 보편적 지식 전달 + 개인 인사이트가 담긴 포스트를 포함합니다.
-
-**Lab** — 직접 손으로 돌려보고 얻은 결과물. Research(개인 리서치), Experiments(실험내역 + 인사이트), Knowledge(프로젝트 속 개인 실험내역)를 하나로 통합합니다. 세 가지는 모두 "직접 해본 것"이라는 공통점이 있고, 실제로 경계가 모호하기 때문입니다. Research → Experiment → Knowledge의 순환 관계를 가지며, 태그(`research`, `experiment`, `knowledge-note`)로 세분화합니다.
-
-**Projects** — 프로젝트 단위의 회고록, 의사결정 기록, 아키텍처 선택 배경. Lab이 "주제 중심"이라면 Projects는 "프로젝트 타임라인 중심"으로, 읽는 사람의 진입 의도가 다릅니다.
-
-**Seminar** — 세미나 발표자료, 스터디 정리, 워크숍 기록. 포맷이 다르고(슬라이드, 요약 + 영상 링크 등), 팀 문화를 보여주는 역할이 있어 독립 메뉴로 분리합니다.
-
-## Topics
+## 주요 기술 영역
 
 - LLM & Post Training
 - RAG & Retrieval
-- AI Agent
+- AI Agent & Orchestration
 - Evaluation & Benchmarking
-- Infrastructure & Serving
+- Infrastructure & Model Serving
 - Backend Engineering
-
-## How It Works
-
-블로그 글은 Notion Document Hub에서 자동 생성됩니다.
-
-```bash
-# Library 생성 (Notion Document Hub → 마크다운)
-python3 main.py blog-generate
-
-# Knowledge 생성 (Notion 지식내재화 → 마크다운)
-python3 main.py knowledge-generate
-```
