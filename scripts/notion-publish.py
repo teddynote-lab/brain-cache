@@ -571,7 +571,7 @@ def create_pr(branch: str, title: str, files: list[str], notion_page_id: str = "
         f"notion_page_id: {notion_page_id}"
     )
     result = subprocess.run(
-        ["gh", "pr", "create", "--title", f"blog: {title}", "--body", body, "--base", "main", "--head", branch],
+        ["gh", "pr", "create", "--title", f"blog: {title}", "--body", body, "--base", "main", "--head", branch, "--assignee", "@me"],
         capture_output=True, text=True, cwd=cwd,
     )
     if result.returncode != 0:
