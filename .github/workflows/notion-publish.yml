@@ -1,0 +1,36 @@
+name: Notion → Blog Publish
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'  # 30분마다 실행
+  workflow_dispatch: {}       # 수동 실행 가능
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install httpx boto3
+
+      - name: Run publish script
+        env:
+          NOTION_API_KEY: ${{ secrets.NOTION_API_KEY }}
+          NOTION_DB_ID: ${{ secrets.NOTION_DB_ID }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+          LLM_MODEL_ID: ${{ secrets.LLM_MODEL_ID }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/notion-publish.py
