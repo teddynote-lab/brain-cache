@@ -8,13 +8,14 @@ sungyeon:
 jaehun:
   name: 최재훈
   title: AI Research Engineer, Brain Crew
-  url: https://brain-crew.com
+  url: https://github.com/ash-hun
   image_url: /img/authors/jaehun.png
   page: true
 
 mason:
   name: 강민석
   title: AI Research Engineer, Brain Crew
+  url: https://github.com/myeolinmalchi
   email: mason@brain-crew.com
   image_url: /img/authors/mason.jpeg
   page: true
@@ -22,6 +23,7 @@ mason:
 dante:
   name: 신승엽
   title: AI Research Engineer, Brain Crew
+  url: https://github.com/syshin0116
   email: dante@brain-crew.com
   image_url: /img/authors/dante.png
   page: true
@@ -29,6 +31,7 @@ dante:
 hank:
   name: 김태한
   title: AI Research Engineer, Brain Crew
+  url: https://github.com/hank-kim97
   email: hank@brain-crew.com
   image_url: /img/authors/hank.png
   page: true

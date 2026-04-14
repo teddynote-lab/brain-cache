@@ -1,5 +1,6 @@
 import type {ReactNode} from 'react';
 import Layout from '@theme/Layout';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
 import styles from './about.module.css';
 
@@ -16,7 +17,7 @@ const TEAM = [
   {
     name: '최재훈',
     nameEn: 'Jaehun',
-    role: 'AI Research Engineer',
+    role: 'Team Lead',
     image: '/img/authors/jaehun.png',
   },
   {
@@ -68,16 +69,18 @@ const FOCUS_AREAS = [
 /* ── Components ────────────────────────────── */
 
 function HeroSection() {
+  const logoLight = useBaseUrl('/img/braincrew-wordmark.svg');
+  const logoDark = useBaseUrl('/img/braincrew-wordmark-white.svg');
   return (
     <section className={styles.hero}>
       <div className={styles.heroInner}>
         <img
-          src="/img/braincrew-wordmark.svg"
+          src={logoLight}
           alt="Brain Crew"
           className={`${styles.heroLogo} ${styles.heroLogoLight}`}
         />
         <img
-          src="/img/braincrew-wordmark-white.svg"
+          src={logoDark}
           alt="Brain Crew"
           className={`${styles.heroLogo} ${styles.heroLogoDark}`}
         />
@@ -117,6 +120,27 @@ function FocusSection() {
   );
 }
 
+function TeamCard({member}: {member: typeof TEAM[number]}) {
+  const imgSrc = useBaseUrl(member.image);
+  return (
+    <div className={styles.teamCard}>
+      <img src={imgSrc} alt={member.name} className={styles.teamAvatar} />
+      <div className={styles.teamInfo}>
+        <h3 className={styles.teamName}>
+          {member.name}
+          <span className={styles.teamNameEn}>{member.nameEn}</span>
+        </h3>
+        <span className={styles.teamRole}>{member.role}</span>
+        {member.github && (
+          <a href={member.github} target="_blank" rel="noopener noreferrer" className={styles.teamLink}>
+            GitHub
+          </a>
+        )}
+      </div>
+    </div>
+  );
+}
+
 function TeamSection() {
   return (
     <section className={`${styles.section} ${styles.sectionAlt}`}>
@@ -125,25 +149,7 @@ function TeamSection() {
         <p className={styles.sectionDesc}>Research & Engineering 팀을 소개합니다.</p>
         <div className={styles.teamGrid}>
           {TEAM.map((member) => (
-            <div key={member.nameEn} className={styles.teamCard}>
-              <img
-                src={member.image}
-                alt={member.name}
-                className={styles.teamAvatar}
-              />
-              <div className={styles.teamInfo}>
-                <h3 className={styles.teamName}>
-                  {member.name}
-                  <span className={styles.teamNameEn}>{member.nameEn}</span>
-                </h3>
-                <span className={styles.teamRole}>{member.role}</span>
-                {member.github && (
-                  <a href={member.github} target="_blank" rel="noopener noreferrer" className={styles.teamLink}>
-                    GitHub
-                  </a>
-                )}
-              </div>
-            </div>
+            <TeamCard key={member.nameEn} member={member} />
           ))}
         </div>
       </div>
