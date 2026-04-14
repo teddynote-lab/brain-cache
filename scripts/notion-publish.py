@@ -563,11 +563,20 @@ def create_pr(branch: str, title: str, files: list[str], notion_page_id: str = "
     run_cmd(f'git commit -m "feat(blog): auto-publish {title}"', cwd)
     run_cmd(f"git push origin {branch}", cwd)
 
-    body = f"Notion에서 자동 생성된 블로그 글입니다.\\n\\n리뷰 후 머지해주세요.\\n\\nnotion_page_id: {notion_page_id}"
-    pr_url = run_cmd(
-        f'gh pr create --title "blog: {title}" --body "{body}" --base main --head {branch}',
-        cwd,
+    notion_url = f"https://www.notion.so/{notion_page_id.replace('-', '')}" if notion_page_id else ""
+    body = (
+        f"Notion에서 자동 생성된 블로그 글입니다.\n\n"
+        f"리뷰 후 머지해주세요.\n\n"
+        f"**Notion 원본**: {notion_url}\n\n"
+        f"notion_page_id: {notion_page_id}"
     )
+    result = subprocess.run(
+        ["gh", "pr", "create", "--title", f"blog: {title}", "--body", body, "--base", "main", "--head", branch],
+        capture_output=True, text=True, cwd=cwd,
+    )
+    if result.returncode != 0:
+        log.warning("PR create failed: %s", result.stderr)
+    pr_url = result.stdout.strip()
     # Go back to main
     run_cmd("git checkout main", cwd)
     return pr_url if pr_url else None
