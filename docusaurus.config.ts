@@ -11,11 +11,12 @@ const config: Config = {
     v4: true,
   },
 
-  url: 'https://tech.brain-crew.com',
-  baseUrl: '/',
+  url: 'https://teddynote-lab.github.io',
+  baseUrl: '/brain-cache/',
 
   organizationName: 'teddynote-lab',
   projectName: 'brain-cache',
+  trailingSlash: false,
 
   onBrokenLinks: 'warn',
 
@@ -39,6 +40,7 @@ const config: Config = {
         blog: {
           path: 'blog',
           routeBasePath: 'blog',
+          authorsMapPath: '../authors.yml',
           showReadingTime: true,
           blogTitle: 'Library',
           blogDescription: '외부 아티클, 논문 리뷰, 기술 레퍼런스 큐레이션',
@@ -63,12 +65,15 @@ const config: Config = {
   ],
 
   plugins: [
+    'docusaurus-plugin-image-zoom',
+    './plugins/recent-posts.js',
     [
       '@docusaurus/plugin-content-blog',
       {
         id: 'lab',
         path: 'lab',
         routeBasePath: 'lab',
+        authorsMapPath: '../authors.yml',
         showReadingTime: true,
         blogTitle: 'Lab',
         blogDescription: '직접 실험하고 리서치한 결과물 — Research, Experiments, Knowledge 통합',
@@ -92,6 +97,7 @@ const config: Config = {
         id: 'projects',
         path: 'projects',
         routeBasePath: 'projects',
+        authorsMapPath: '../authors.yml',
         showReadingTime: true,
         blogTitle: 'Projects',
         blogDescription: '회사 프로젝트 회고와 의사결정 기록',
@@ -115,12 +121,13 @@ const config: Config = {
         id: 'seminar',
         path: 'seminar',
         routeBasePath: 'seminar',
+        authorsMapPath: '../authors.yml',
         showReadingTime: true,
-        blogTitle: 'Seminar',
-        blogDescription: '팀 내부 세미나 발표자료 및 스터디 정리',
+        blogTitle: 'Seminar & Paper',
+        blogDescription: '팀 내부 세미나 발표자료, 논문 리뷰 및 스터디 정리',
         postsPerPage: 10,
-        blogSidebarTitle: 'Seminar',
-        blogSidebarCount: 15,
+        blogSidebarTitle: 'Seminar & Paper',
+        blogSidebarCount: 'ALL',
         feedOptions: {
           type: ['rss', 'atom'],
           xslt: true,
@@ -134,10 +141,27 @@ const config: Config = {
     ],
   ],
 
+  themes: [
+    [
+      '@easyops-cn/docusaurus-search-local',
+      {
+        hashed: true,
+        language: ['ko', 'en'],
+        indexBlog: true,
+        indexDocs: true,
+        blogRouteBasePath: ['/blog', '/lab', '/projects', '/seminar'],
+        highlightSearchTermsOnTargetPage: true,
+        searchResultLimits: 8,
+        searchBarShortcutHint: true,
+      },
+    ],
+  ],
+
   themeConfig: {
     image: 'img/logo.png',
     colorMode: {
       defaultMode: 'light',
+      disableSwitch: false,
       respectPrefersColorScheme: true,
     },
     navbar: {
@@ -149,10 +173,11 @@ const config: Config = {
         style: {height: '28px'},
       },
       items: [
-        {to: '/blog', label: 'Library', position: 'left'},
-        {to: '/lab', label: 'Lab', position: 'left'},
-        {to: '/projects', label: 'Projects', position: 'left'},
-        {to: '/seminar', label: 'Seminar', position: 'left'},
+        {to: '/posts', label: 'All Posts', position: 'left'},
+        {to: '/posts?tab=Library', label: 'Library', position: 'left'},
+        {to: '/posts?tab=Lab', label: 'Lab', position: 'left'},
+        {to: '/posts?tab=Projects', label: 'Projects', position: 'left'},
+        {to: '/posts?tab=Seminar', label: 'Seminar & Paper', position: 'left'},
         {
           type: 'docSidebar',
           sidebarId: 'guideSidebar',
@@ -168,38 +193,27 @@ const config: Config = {
     },
     footer: {
       style: 'dark',
-      links: [
-        {
-          title: 'Content',
-          items: [
-            {label: 'Library', to: '/blog'},
-            {label: 'Lab', to: '/lab'},
-            {label: 'Projects', to: '/projects'},
-            {label: 'Seminar', to: '/seminar'},
-            {label: 'Guides', to: '/docs/intro'},
-          ],
-        },
-        {
-          title: 'Brain Crew',
-          items: [
-            {label: 'Homepage', href: 'https://brain-crew.com'},
-            {label: 'Careers', href: 'https://brain-crew.com/apply'},
-          ],
-        },
-        {
-          title: 'More',
-          items: [
-            {label: 'RSS Feed', href: '/blog/rss.xml'},
-            {label: 'GitHub', href: 'https://github.com/teddynote-lab'},
-          ],
-        },
-      ],
-      copyright: `Copyright © ${new Date().getFullYear()} Brain Crew. Built with Docusaurus.`,
+      links: [],
+      copyright: `© ${new Date().getFullYear()} Brain Crew · Built with Docusaurus`,
     },
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
       additionalLanguages: ['python', 'bash', 'yaml', 'json', 'toml'],
+      magicComments: [
+        {
+          className: 'theme-code-block-highlighted-line',
+          line: 'highlight-next-line',
+          block: {start: 'highlight-start', end: 'highlight-end'},
+        },
+      ],
+    },
+    zoom: {
+      selector: '.markdown img',
+      background: {
+        light: 'rgba(255, 255, 255, 0.9)',
+        dark: 'rgba(13, 17, 23, 0.9)',
+      },
     },
   } satisfies Preset.ThemeConfig,
 };

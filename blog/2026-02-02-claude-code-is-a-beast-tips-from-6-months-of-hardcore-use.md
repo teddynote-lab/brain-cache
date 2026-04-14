@@ -3,7 +3,7 @@ title: "Claude Code is a Beast – Tips from 6 Months of Hardcore Use"
 description: "6개월간 30만 LOC 프로젝트를 단독으로 진행하며 Claude Code를 극한까지 활용한 엔지니어가 검증된 워크플로우를 공개합니다. Skills 자동 활성화 시스템(TypeScript hooks 기반), 컨텍스트 유지를 위한 Dev Docs 패턴, PM2 통합 에러 "
 slug: claude-code-is-a-beast-tips-from-6-months-of-hardcore-use
 date: 2026-02-02
-authors: [braincrew]
+authors: [mason]
 tags:
   - vibe-coding
   - reference

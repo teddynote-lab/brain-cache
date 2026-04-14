@@ -3,7 +3,7 @@ title: "프롬프트 캐싱(Prompt Caching) 전략"
 description: "프롬프트 캐싱은 AI 에이전트의 비용을 최대 90% 절감하고 응답 속도를 획기적으로 개선하는 핵심 기술입니다. 접두사 매칭(Prefix Matching) 원리에 기반하여, 변하지 않는 컨텍스트는 앞에 배치하고 동적 요소는 뒤로 보내는 전략이 필수적입니다. 시스템 프롬프"
 slug: 프롬프트-캐싱prompt-caching-전략
 date: 2026-02-20
-authors: [braincrew]
+authors: [hank]
 tags:
   - cost-efficiency
   - llm

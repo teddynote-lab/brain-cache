@@ -3,7 +3,7 @@ title: "stanford-cs146s-kr"
 description: "Stanford CS146S "
 slug: stanford-cs146s-kr
 date: 2026-02-02
-authors: [braincrew]
+authors: [mason]
 tags:
   - vibe-coding
   - reference

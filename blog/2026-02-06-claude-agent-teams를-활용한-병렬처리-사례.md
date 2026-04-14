@@ -3,7 +3,7 @@ title: "Claude Agent Teams를 활용한 병렬처리 사례"
 description: "Anthropic의 Claude Code에 새로 추가된 Agent Teams 모드는 여러 Claude 인스턴스가 독립적인 컨텍스트 윈도우에서 병렬로 작업하며 서로 직접 소통하는 구조입니다. 기존 Subagent의 "
 slug: claude-agent-teams를-활용한-병렬처리-사례
 date: 2026-02-06
-authors: [braincrew]
+authors: [hank]
 tags:
   - ai-agent
   - vibe-coding

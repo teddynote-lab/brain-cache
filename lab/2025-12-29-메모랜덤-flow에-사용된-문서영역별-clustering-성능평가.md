@@ -3,7 +3,7 @@ title: "메모랜덤 flow에 사용된 문서영역별 Clustering 성능평가"
 description: "GS Caltex 메모랜덤-연구노트 매칭 프로젝트에서 PyMuPDF 기반 파서, Titan Embed V2 임베딩, ChromaDB 벡터 검색, Claude Sonnet 4.5 LLM 판정을 결합한 파이프라인을 구축했습니다. 137개 연구노트 중 82.5%가 메모랜덤과"
 slug: 메모랜덤-flow에-사용된-문서영역별-clustering-성능평가
 date: 2025-12-29
-authors: [braincrew]
+authors: [mason]
 tags:
   - rag
 source_url: "https://www.ibm.com/kr-ko/think/topics/knn"

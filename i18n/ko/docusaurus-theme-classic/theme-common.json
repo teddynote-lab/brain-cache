@@ -1,0 +1,4 @@
+{
+  "theme.blog.tagTitle": "\"{tagName}\" 태그 — {nPosts}",
+  "theme.blog.post.plurals": "{count}개 게시물"
+}

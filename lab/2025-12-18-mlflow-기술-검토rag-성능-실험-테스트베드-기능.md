@@ -3,7 +3,7 @@ title: "MLflow 기술 검토(RAG 성능 실험 테스트베드 기능)"
 description: "MLflow는 전통적인 ML과 LLM 애플리케이션의 전체 생명주기를 관리할 수 있는 오픈소스 통합 플랫폼입니다. LangGraph 기반 RAG Agent 개발 시 Tracking으로 하이퍼파라미터와 메트릭을 관리하고, Tracing으로 복잡한 LLM 호출 흐름을 추적하"
 slug: mlflow-기술-검토rag-성능-실험-테스트베드-기능
 date: 2025-12-18
-authors: [braincrew]
+authors: [hank]
 tags:
   - evaluation
 source_url: "https://github.com/taehan79-kim/mlflow-genai-tutorial"

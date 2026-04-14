@@ -3,7 +3,7 @@ title: "Multi Vector and Dataset Geometry"
 description: "Multi-vector retrieval 알고리즘(PLAID, MUVERA)은 특정 유사도 함수(MaxSim)와 특정 데이터 기하학(multi-kernel anisotropic, moderate variance)에 최적화되어 있으며, 이 조건이 벗어나면 성능 보장이 무"
 slug: multi-vector-and-dataset-geometry
 date: 2026-03-23
-authors: [braincrew]
+authors: [hank]
 tags:
   - retrieval
   - insight
