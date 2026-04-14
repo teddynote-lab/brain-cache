@@ -208,7 +208,7 @@ const config: Config = {
         },
         {
           label: 'RSS Feed',
-          href: '/brain-cache/blog/rss.xml',
+          href: 'https://brain-cache.vercel.app/blog/rss.xml',
         },
       ],
       copyright: `© ${new Date().getFullYear()} 브레인크루(주) · 대표이사 이경록<br/>경기도 성남시 분당구 정자로 2, 1602호 · dev@brain-crew.com`,
