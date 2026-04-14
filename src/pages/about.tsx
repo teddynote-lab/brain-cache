@@ -76,33 +76,31 @@ function HeroSection() {
   const logoLight = useBaseUrl('/img/braincrew-wordmark.svg');
   const logoDark = useBaseUrl('/img/braincrew-wordmark-white.svg');
   return (
-    <section className={styles.hero}>
-      <div className={styles.heroInner}>
-        <img
-          src={logoLight}
-          alt="Brain Crew"
-          className={`${styles.heroLogo} ${styles.heroLogoLight}`}
-        />
-        <img
-          src={logoDark}
-          alt="Brain Crew"
-          className={`${styles.heroLogo} ${styles.heroLogoDark}`}
-        />
+    <header className={styles.hero}>
+      <div className={styles.heroGlow} />
+      <div className={styles.heroGrid} />
+      <div className={styles.heroContent}>
+        <div className={styles.heroBadge}>
+          <span className={styles.heroBadgeDot} />
+          About Brain Crew
+        </div>
+        <img src={logoLight} alt="Brain Crew" className={`${styles.heroLogo} ${styles.heroLogoLight}`} />
+        <img src={logoDark} alt="Brain Crew" className={`${styles.heroLogo} ${styles.heroLogoDark}`} />
         <p className={styles.heroDesc}>
           기업이 AI를 실질적으로 활용할 수 있도록 돕는 AI 전문 기업입니다.
           <br />
           RAG, LLM Agent, 평가 시스템 등 핵심 기술을 연구하고 엔터프라이즈 솔루션을 구축합니다.
         </p>
         <div className={styles.heroLinks}>
-          <a href="https://brain-crew.com" target="_blank" rel="noopener noreferrer" className={styles.heroLink}>
+          <a href="https://brain-crew.com" target="_blank" rel="noopener noreferrer" className={styles.heroPrimary}>
             Homepage
           </a>
-          <a href="https://github.com/teddynote-lab" target="_blank" rel="noopener noreferrer" className={styles.heroLink}>
+          <a href="https://github.com/teddynote-lab" target="_blank" rel="noopener noreferrer" className={styles.heroSecondary}>
             GitHub
           </a>
         </div>
       </div>
-    </section>
+    </header>
   );
 }
 
@@ -127,21 +125,14 @@ function FocusSection() {
 function TeamCard({member}: {member: typeof TEAM[number]}) {
   const imgSrc = useBaseUrl(member.image);
   return (
-    <div className={styles.teamCard}>
+    <a href={member.github} target="_blank" rel="noopener noreferrer" className={styles.teamCard}>
       <img src={imgSrc} alt={member.name} className={styles.teamAvatar} />
-      <div className={styles.teamInfo}>
-        <h3 className={styles.teamName}>
-          {member.name}
-          <span className={styles.teamNameEn}>{member.nameEn}</span>
-        </h3>
-        <span className={styles.teamRole}>{member.role}</span>
-        {member.github && (
-          <a href={member.github} target="_blank" rel="noopener noreferrer" className={styles.teamLink}>
-            GitHub
-          </a>
-        )}
-      </div>
-    </div>
+      <h3 className={styles.teamName}>
+        {member.name}
+        <span className={styles.teamNameEn}>{member.nameEn}</span>
+      </h3>
+      <span className={styles.teamRole}>{member.role}</span>
+    </a>
   );
 }
 
@@ -189,8 +180,8 @@ function CareerSection() {
   return (
     <section className={`${styles.section} ${styles.sectionAlt}`}>
       <div className={styles.container}>
-        <div className={styles.careerInner}>
-          <div>
+        <div className={styles.careerCard}>
+          <div className={styles.careerText}>
             <div className={styles.sectionLabel}>Career</div>
             <h2 className={styles.careerTitle}>함께 성장할 동료를 찾습니다</h2>
             <p className={styles.careerDesc}>
@@ -204,7 +195,7 @@ function CareerSection() {
             rel="noopener noreferrer"
             className={styles.careerBtn}
           >
-            채용 페이지 보기
+            채용 페이지 보기 →
           </a>
         </div>
       </div>
