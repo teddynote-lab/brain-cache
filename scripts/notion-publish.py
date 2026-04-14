@@ -498,6 +498,14 @@ def slugify(text: str) -> str:
     return text[:80] if text else "untitled"
 
 
+def branch_safe(text: str) -> str:
+    """브랜치명에 사용 가능한 ASCII 전용 slug."""
+    text = unicodedata.normalize("NFKD", text)
+    text = re.sub(r"[^a-zA-Z0-9\s-]", "", text)
+    text = re.sub(r"[\s_]+", "-", text).strip("-").lower()
+    return text[:50] if text else "post"
+
+
 def extract_tldr(body: str) -> str:
     match = re.search(r"## TL;DR\s*\n>\s*(.+)", body)
     return match.group(1).strip()[:200] if match else ""
@@ -671,7 +679,7 @@ def publish(page_id: Optional[str] = None, dry_run: bool = False):
             log.info("파일 생성: %s", rel_path)
 
             # 8. PR 생성
-            branch = f"blog/{slug[:50]}-{file_date}"
+            branch = f"blog/{branch_safe(title)}-{file_date}"
             img_dir = f"static/img/blog/{slug}"
             files_to_add = [rel_path]
             if (PROJECT_ROOT / img_dir).exists():
