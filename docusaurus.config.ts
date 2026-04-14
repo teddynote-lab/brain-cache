@@ -12,7 +12,7 @@ const config: Config = {
   },
 
   url: 'https://teddynote-lab.github.io',
-  baseUrl: '/',
+  baseUrl: '/brain-cache/',
 
   organizationName: 'teddynote-lab',
   projectName: 'brain-cache',
