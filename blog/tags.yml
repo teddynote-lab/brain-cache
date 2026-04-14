@@ -142,3 +142,18 @@ vibe-coding:
   label: Vibe Coding
   permalink: /vibe-coding
   description: 바이브 코딩, AI 지원 개발 관련 글
+
+conference:
+  label: Conference
+  permalink: /conference
+  description: 컨퍼런스, 밋업 참석 후기
+
+harness-engineering:
+  label: Harness Engineering
+  permalink: /harness-engineering
+  description: 하네스 엔지니어링, LLM 코딩 환경 관련 글
+
+retrospective:
+  label: Retrospective
+  permalink: /retrospective
+  description: 회고, 후기 관련 글
