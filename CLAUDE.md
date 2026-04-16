@@ -2,38 +2,8 @@
 
 ## Overview
 - Docusaurus 3 기반 기술 블로그
-- URL: https://brain-cache.vercel.app
-- Vercel 프로젝트: `tech-blog` (scope: `seongyeon1s-projects`)
-
-## Deployment Guide
-
-Vercel 서버 빌드가 불안정하므로 **로컬 빌드 후 prebuilt 배포** 방식을 사용한다.
-
-### 배포 명령어 (3단계)
-
-```bash
-# 1. 로컬에서 production 빌드
-vercel build --prod
-
-# 2. prebuilt 결과물을 build/ 디렉토리에 복사 후 배포
-cd build
-cp -r ../.vercel/output .vercel/output
-cp ../.vercel/project.json .vercel/project.json
-vercel deploy --prebuilt --prod
-
-# 3. brain-cache.vercel.app 도메인 연결 (배포 URL은 출력에서 확인)
-vercel alias <배포된-URL> brain-cache.vercel.app
-
-# 4. build 디렉토리 정리
-rm -rf .vercel
-cd ..
-```
-
-### 주의사항
-- `vercel --prod` (서버 빌드)는 `Unexpected error`가 자주 발생하므로 사용하지 않는다
-- 반드시 `vercel build --prod` → `vercel deploy --prebuilt --prod` 순서로 배포한다
-- 배포 후 `vercel alias`로 `brain-cache.vercel.app`에 연결해야 실제 URL에 반영된다
-- `vercel pull --yes`로 프로젝트 설정이 최신인지 먼저 확인하면 안전하다
+- URL: https://teddynote-lab.github.io/brain-cache/
+- 배포: GitHub Pages (main push 시 자동, `.github/workflows/deploy.yml`)
 
 ## Blog Structure
 
@@ -65,7 +35,7 @@ source_url: "https://..."  # 외부 참조 시 (선택)
 본문 구조: `# 제목` → `## TL;DR` (blockquote) → `## Key Takeaways` (bullet list) → `## 상세 내용` (h3 섹션들)
 
 ## Authors
-- sungyeon, jaehun, mason, hank, braincrew (authors.yml에 정의)
+- sungyeon, jaehun, mason, hank, dante, sean, braincrew (authors.yml에 정의)
 
 ## Static Assets
 - 이미지: `static/img/blog/<post-slug>/` 디렉토리에 저장
@@ -75,7 +45,7 @@ source_url: "https://..."  # 외부 참조 시 (선택)
 - 검색: `@easyops-cn/docusaurus-search-local` (한국어/영어, Ctrl+K)
 - 이미지 zoom: `docusaurus-plugin-image-zoom` (글 내 이미지 클릭 확대)
 - 읽기 진행 바: `src/theme/Root.tsx` (스크롤 기반 프로그레스 바)
-- 사이드바 토글: `src/theme/Root.tsx` (좌하단 «/» 버튼)
+- navbar active 동기화: `src/theme/Root.tsx` (탭 기반 메뉴 하이라이트)
 - 관련 글 추천: `src/components/RelatedPosts.tsx` + `src/theme/BlogPostPage/index.tsx` (태그 기반)
 - 소셜 공유: `src/components/ShareButtons.tsx` (X, LinkedIn, 링크 복사)
 - 홈페이지: `plugins/recent-posts.js`로 빌드 시 글 목록 수집 → 카테고리별 카드 그리드
