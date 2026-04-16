@@ -34,8 +34,8 @@ const config: Config = {
       'classic',
       {
         docs: {
-          sidebarPath: './sidebars.ts',
-          routeBasePath: 'docs',
+          sidebarPath: false,
+          routeBasePath: '__docs',
         },
         blog: {
           path: 'blog',
@@ -46,7 +46,7 @@ const config: Config = {
           blogDescription: '외부 아티클, 논문 리뷰, 기술 레퍼런스 큐레이션',
           postsPerPage: 10,
           blogSidebarTitle: 'Library',
-          blogSidebarCount: 15,
+          blogSidebarCount: 0,
           feedOptions: {
             type: ['rss', 'atom'],
             xslt: true,
@@ -79,7 +79,7 @@ const config: Config = {
         blogDescription: '직접 실험하고 리서치한 결과물 — Research, Experiments, Knowledge 통합',
         postsPerPage: 10,
         blogSidebarTitle: 'Lab',
-        blogSidebarCount: 15,
+        blogSidebarCount: 0,
         feedOptions: {
           type: ['rss', 'atom'],
           xslt: true,
@@ -103,7 +103,7 @@ const config: Config = {
         blogDescription: '회사 프로젝트 회고와 의사결정 기록',
         postsPerPage: 10,
         blogSidebarTitle: 'Projects',
-        blogSidebarCount: 15,
+        blogSidebarCount: 0,
         feedOptions: {
           type: ['rss', 'atom'],
           xslt: true,
@@ -127,7 +127,7 @@ const config: Config = {
         blogDescription: '팀 내부 세미나 발표자료, 논문 리뷰 및 스터디 정리',
         postsPerPage: 10,
         blogSidebarTitle: 'Seminar & Paper',
-        blogSidebarCount: 'ALL',
+        blogSidebarCount: 0,
         feedOptions: {
           type: ['rss', 'atom'],
           xslt: true,
@@ -148,7 +148,7 @@ const config: Config = {
         hashed: true,
         language: ['ko', 'en'],
         indexBlog: true,
-        indexDocs: true,
+        indexDocs: false,
         blogRouteBasePath: ['/blog', '/lab', '/projects', '/seminar'],
         highlightSearchTermsOnTargetPage: true,
         searchResultLimits: 8,
@@ -173,11 +173,10 @@ const config: Config = {
         style: {height: '28px'},
       },
       items: [
-        {to: '/posts', label: 'All Posts', position: 'left'},
-        {to: '/posts?tab=Library', label: 'Library', position: 'left'},
-        {to: '/posts?tab=Lab', label: 'Lab', position: 'left'},
-        {to: '/posts?tab=Projects', label: 'Projects', position: 'left'},
-        {to: '/posts?tab=Seminar', label: 'Seminar & Paper', position: 'left'},
+        {to: '/posts?tab=Library', label: 'Library', position: 'left', activeBaseRegex: 'NEVER_MATCH_THIS'},
+        {to: '/posts?tab=Lab', label: 'Lab', position: 'left', activeBaseRegex: 'NEVER_MATCH_THIS'},
+        {to: '/posts?tab=Projects', label: 'Projects', position: 'left', activeBaseRegex: 'NEVER_MATCH_THIS'},
+        {to: '/posts?tab=Seminar', label: 'Seminar & Paper', position: 'left', activeBaseRegex: 'NEVER_MATCH_THIS'},
         {to: '/about', label: 'About', position: 'left'},
         {
           href: 'https://github.com/teddynote-lab',

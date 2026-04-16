@@ -127,7 +127,7 @@ function NavbarActiveSync() {
     if (location.pathname === '/posts') {
       const params = new URLSearchParams(location.search);
       const tab = params.get('tab') || '';
-      const targetLabel = TAB_TO_LABEL[tab] || 'All Posts';
+      const targetLabel = TAB_TO_LABEL[tab] || '';
 
       links.forEach((link) => {
         if (link.textContent?.trim() === targetLabel) {

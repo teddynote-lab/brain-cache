@@ -873,21 +873,19 @@ article .markdown table tr:hover td {
   background: var(--ifm-color-primary) !important;
 }
 
-/* ── TOC ──────────────────────────────────── */
+/* ── TOC (hidden on blog posts) ──────────── */
 
-.table-of-contents {
-  font-size: 0.82rem;
-  line-height: 1.5;
+.col[class*="col--2"] .table-of-contents,
+.blog-wrapper .col[class*="col--2"] {
+  display: none !important;
 }
 
-.table-of-contents__link {
-  padding: 0.25rem 0;
-  transition: color 0.15s ease;
-}
-
-.table-of-contents__link--active {
-  font-weight: 600;
-  color: var(--ifm-color-primary);
+/* Blog post content takes full width without sidebar/TOC */
+@media (min-width: 997px) {
+  .blog-wrapper .col--7 {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
 }
 
 /* ── Print Stylesheet ──────────────────────── */

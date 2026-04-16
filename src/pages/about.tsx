@@ -42,24 +42,12 @@ const TEAM = [
     image: '/img/authors/dante.png',
     github: 'https://github.com/syshin0116',
   },
-];
-
-const TECH_CATEGORIES = [
   {
-    title: 'LLM & AI',
-    items: ['Claude', 'GPT-4o', 'AWS Bedrock', 'LangChain', 'LangGraph', 'vLLM'],
-  },
-  {
-    title: 'Retrieval',
-    items: ['Pinecone', 'Weaviate', 'Milvus', 'Elasticsearch', 'OpenSearch'],
-  },
-  {
-    title: 'Backend',
-    items: ['FastAPI', 'Python', 'PostgreSQL', 'Redis', 'Docker'],
-  },
-  {
-    title: 'Infrastructure',
-    items: ['AWS', 'Kubernetes', 'GitHub Actions', 'Grafana'],
+    name: '김유신',
+    nameEn: 'Sean',
+    role: 'AI Research Engineer',
+    image: '/img/authors/sean.jpg',
+    github: 'https://github.com/ysksean',
   },
 ];
 
@@ -152,30 +140,6 @@ function TeamSection() {
   );
 }
 
-function TechSection() {
-  return (
-    <section className={styles.section}>
-      <div className={styles.container}>
-        <div className={styles.sectionLabel}>Tech Stack</div>
-        <div className={styles.techGrid}>
-          {TECH_CATEGORIES.map((cat) => (
-            <div key={cat.title} className={styles.techCategory}>
-              <h3 className={styles.techCatTitle}>{cat.title}</h3>
-              <div className={styles.techItems}>
-                {cat.items.map((item) => (
-                  <span key={item} className={styles.techBadge}>
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function CareerSection() {
   return (
     <section className={`${styles.section} ${styles.sectionAlt}`}>
@@ -212,7 +176,6 @@ export default function AboutPage(): ReactNode {
         <HeroSection />
         <FocusSection />
         <TeamSection />
-        <TechSection />
         <CareerSection />
       </main>
     </Layout>

@@ -50,6 +50,7 @@ AUTHOR_MAP = {
     "hank@brain-crew.com": "hank",
     "kane@brain-crew.com": "kane",
     "dante@brain-crew.com": "dante",
+    "sean@brain-crew.com": "sean",
 }
 
 AUTHOR_ID_MAP = {
