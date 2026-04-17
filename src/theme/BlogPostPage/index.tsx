@@ -5,7 +5,6 @@ import type BlogPostPageType from '@theme/BlogPostPage';
 import type {WrapperProps} from '@docusaurus/types';
 import {useLocation} from '@docusaurus/router';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import Comments from '@site/src/components/Comments';
 
 type Props = WrapperProps<typeof BlogPostPageType>;
 
@@ -58,13 +57,6 @@ export default function BlogPostPageWrapper(props: Props): JSX.Element {
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Head>
       <BlogPostPage {...props} />
-      <div className="container margin-vert--lg">
-        <div className="row">
-          <div className="col col--8 col--offset-2">
-            <Comments />
-          </div>
-        </div>
-      </div>
     </>
   );
 }

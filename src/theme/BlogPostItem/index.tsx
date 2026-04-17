@@ -7,6 +7,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import {useBlogPost} from '@docusaurus/plugin-content-blog/client';
 import RelatedPosts from '@site/src/components/RelatedPosts';
 import ShareButtons from '@site/src/components/ShareButtons';
+import Comments from '@site/src/components/Comments';
 
 type Props = WrapperProps<typeof BlogPostItemType>;
 
@@ -88,6 +89,7 @@ export default function BlogPostItemWrapper(props: Props): JSX.Element {
 
         <ShareButtons title={title} url={fullUrl} />
         <RelatedPosts currentPermalink={permalink} tags={tags} />
+        <Comments />
       </div>
     </div>
   );
