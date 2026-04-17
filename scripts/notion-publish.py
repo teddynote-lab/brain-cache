@@ -37,7 +37,7 @@ log = logging.getLogger(__name__)
 
 NOTION_API_BASE = "https://api.notion.com/v1"
 NOTION_API_KEY = os.environ.get("NOTION_API_KEY", "")
-DOCUMENT_HUB_DB_ID = os.environ.get("NOTION_DB_ID", "97c4b169-cb88-83fd-b98b-8137e22c1b90")
+DOCUMENT_HUB_DB_ID = os.environ.get("NOTION_DB_ID") or "97c4b169-cb88-83fd-b98b-8137e22c1b90"
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
