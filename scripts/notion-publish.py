@@ -541,8 +541,18 @@ def branch_safe(text: str) -> str:
 
 
 def extract_tldr(body: str) -> str:
-    match = re.search(r"## TL;DR\s*\n>\s*(.+)", body)
-    return match.group(1).strip()[:200] if match else ""
+    """## TL;DR 의 blockquote 내용을 통째로 추출 (다중 라인, '>' 프리픽스 제거)."""
+    match = re.search(r"## TL;DR\s*\n((?:>[^\n]*\n?)+)", body)
+    if not match:
+        return ""
+    lines = [re.sub(r"^>\s?", "", line) for line in match.group(1).rstrip().split("\n")]
+    return "\n".join(lines).strip()
+
+
+def extract_tldr_short(body: str, limit: int = 200) -> str:
+    """frontmatter description 용 — 한 줄로 합치고 길이 제한."""
+    oneline = " ".join(extract_tldr(body).split())
+    return oneline[:limit]
 
 
 def extract_first_source_url(links: list) -> str:
@@ -639,9 +649,12 @@ def create_pr(
     reading_min = max(1, word_count // 500) if word_count else "?"
     tags_str = ", ".join(categories) if isinstance(categories, list) else categories
 
+    # 다중 라인 blockquote — 각 줄에 '>' 프리픽스 유지
+    tldr_block = "\n".join(f"> {line}" if line else ">" for line in tldr.split("\n")) if tldr else "> "
+
     body = (
         f"## Summary\n"
-        f"> {tldr}\n\n"
+        f"{tldr_block}\n\n"
         f"## Meta\n"
         f"| | |\n|---|---|\n"
         f"| **Category** | {doc_type} |\n"
@@ -757,7 +770,7 @@ def publish(page_id: Optional[str] = None, dry_run: bool = False):
             # 6. Markdown 파일 조합
             source_url = extract_first_source_url(links)
             file_date = upload_date or datetime.now().strftime("%Y-%m-%d")
-            frontmatter = build_frontmatter(title, extract_tldr(blog_body), categories, doc_type, file_date, source_url, authors)
+            frontmatter = build_frontmatter(title, extract_tldr_short(blog_body), categories, doc_type, file_date, source_url, authors)
             full_md = f"{frontmatter}# {title}\n\n{blog_body}\n"
 
             output_dir = DOC_TYPE_CONFIG.get(doc_type, DOC_TYPE_CONFIG["reference"])["output_dir"]
