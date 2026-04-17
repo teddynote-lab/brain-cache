@@ -37,7 +37,8 @@ log = logging.getLogger(__name__)
 
 NOTION_API_BASE = "https://api.notion.com/v1"
 NOTION_API_KEY = os.environ.get("NOTION_API_KEY", "")
-DOCUMENT_HUB_DB_ID = os.environ.get("NOTION_DB_ID") or "97c4b169-cb88-83fd-b98b-8137e22c1b90"
+_DEFAULT_DB_ID = "d014b169-cb88-8241-8697-81e3da9d9b44"
+DOCUMENT_HUB_DB_ID = (os.environ.get("NOTION_DB_ID") or "").strip() or _DEFAULT_DB_ID
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
@@ -663,6 +664,7 @@ def publish(page_id: Optional[str] = None, dry_run: bool = False):
         resp = httpx.get(f"{NOTION_API_BASE}/pages/{page_id}", headers=_notion_headers(), timeout=15).json()
         pages = [resp]
     else:
+        log.info("Document Hub DB 쿼리: %s", DOCUMENT_HUB_DB_ID)
         pages = notion_query_db(
             DOCUMENT_HUB_DB_ID,
             filter_obj={
