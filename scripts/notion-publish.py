@@ -57,6 +57,16 @@ AUTHOR_ID_MAP = {
     "2bcd872b-594c-816f-86db-00020ef03ddd": "hank",
 }
 
+# ── 작성자별 Git 아이덴티티 + PAT Secret 이름 ──────────────
+# (commit_author_name, commit_author_email, pat_env_name)
+# 커밋 아바타가 GitHub 프로필로 연결되려면 email이 해당 계정의 verified email이어야 합니다.
+AUTHOR_GIT_IDENTITY = {
+    "hank":     ("김태한",  "hank@brain-crew.com", "GH_PAT_HANK"),
+    "sungyeon": ("김성연",  "sung@brain-crew.com", "GH_PAT_SUNG"),
+}
+DEFAULT_PAT_ENV = "GH_PAT_SUNG"
+REPO_SLUG = "teddynote-lab/brain-cache"
+
 # ── Document Type → 출력 디렉토리 ──────────────────────────
 
 DOC_TYPE_CONFIG = {
@@ -553,6 +563,19 @@ def run_cmd(cmd: str, cwd: str | None = None) -> str:
     return result.stdout.strip()
 
 
+def resolve_author_identity(author_key: str) -> tuple[str, str, str]:
+    """작성자 키 → (git_name, git_email, token). 매핑 없으면 DEFAULT_PAT_ENV 사용."""
+    identity = AUTHOR_GIT_IDENTITY.get(author_key)
+    if identity:
+        name, email, pat_env = identity
+    else:
+        name, email, pat_env = "Brain Cache Bot", "bot@brain-crew.com", DEFAULT_PAT_ENV
+    token = os.environ.get(pat_env) or os.environ.get(DEFAULT_PAT_ENV) or ""
+    if not token:
+        log.warning("작성자 %s 용 PAT (%s, %s) 을 찾지 못했습니다.", author_key, pat_env, DEFAULT_PAT_ENV)
+    return name, email, token
+
+
 def create_pr(
     branch: str,
     title: str,
@@ -563,16 +586,31 @@ def create_pr(
     categories: list | str = "",
     authors: str = "",
     word_count: int = 0,
+    author_key: str = "",
 ) -> str | None:
-    """Git 브랜치 생성 + 커밋 + PR."""
+    """Git 브랜치 생성 + 커밋 + PR. PR 작성자는 author_key 기준으로 결정."""
     cwd = str(PROJECT_ROOT)
+
+    commit_name, commit_email, token = resolve_author_identity(author_key)
+    log.info("PR 작성자: key=%s, name=%s, email=%s", author_key, commit_name, commit_email)
+
+    # 커밋 author 를 작성자 본인으로 (로컬 스코프)
+    run_cmd(f'git config user.name "{commit_name}"', cwd)
+    run_cmd(f'git config user.email "{commit_email}"', cwd)
+
     run_cmd("git checkout main", cwd)
     run_cmd("git pull origin main", cwd)
     run_cmd(f"git checkout -b {branch}", cwd)
     for f in files:
         run_cmd(f'git add "{f}"', cwd)
     run_cmd(f'git commit -m "feat(blog): auto-publish {title}"', cwd)
-    run_cmd(f"git push origin {branch}", cwd)
+
+    # 푸시는 작성자 PAT으로 직접 인증 (actions/checkout 의 GITHUB_TOKEN extraheader 무력화)
+    if token:
+        push_url = f"https://x-access-token:{token}@github.com/{REPO_SLUG}.git"
+        run_cmd(f'git -c http.extraheader= push {push_url} {branch}', cwd)
+    else:
+        run_cmd(f"git push origin {branch}", cwd)
 
     notion_url = f"https://www.notion.so/{notion_page_id.replace('-', '')}" if notion_page_id else ""
     reading_min = max(1, word_count // 500) if word_count else "?"
@@ -596,9 +634,12 @@ def create_pr(
         f"---\n"
         f"notion_page_id: {notion_page_id}"
     )
+    env = os.environ.copy()
+    if token:
+        env["GH_TOKEN"] = token
     result = subprocess.run(
         ["gh", "pr", "create", "--title", f"blog: {title}", "--body", body, "--base", "main", "--head", branch, "--assignee", "@me"],
-        capture_output=True, text=True, cwd=cwd,
+        capture_output=True, text=True, cwd=cwd, env=env,
     )
     if result.returncode != 0:
         log.warning("PR create failed: %s", result.stderr)
@@ -722,6 +763,7 @@ def publish(page_id: Optional[str] = None, dry_run: bool = False):
 
             tldr = extract_tldr(blog_body)
             word_count = len(full_md)
+            first_author_key = authors.split(",")[0].strip() if authors else ""
             pr_url = create_pr(
                 branch, title[:60], files_to_add,
                 notion_page_id=page["id"],
@@ -730,6 +772,7 @@ def publish(page_id: Optional[str] = None, dry_run: bool = False):
                 categories=categories,
                 authors=authors,
                 word_count=word_count,
+                author_key=first_author_key,
             )
             if pr_url:
                 log.info("PR 생성: %s", pr_url)

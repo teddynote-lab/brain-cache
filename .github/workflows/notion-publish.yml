@@ -32,5 +32,7 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: ${{ secrets.AWS_REGION }}
           LLM_MODEL_ID: ${{ secrets.LLM_MODEL_ID }}
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # 작성자별 Fine-grained PAT (fallback: GH_PAT_SUNG)
+          GH_PAT_HANK: ${{ secrets.GH_PAT_HANK }}
+          GH_PAT_SUNG: ${{ secrets.GH_PAT_SUNG }}
         run: python scripts/notion-publish.py

@@ -11,6 +11,9 @@ sungyeon:
   url: https://github.com/seongyeon1
   image_url: /img/authors/sungyeon.jpeg
   page: true
+  github_login: seongyeon1
+  github_email: sung@brain-crew.com
+  pat_secret: GH_PAT_SUNG
 
 mason:
   name: 강민석
@@ -27,6 +30,9 @@ hank:
   email: hank@brain-crew.com
   image_url: /img/authors/hank.png
   page: true
+  github_login: hank-kim97
+  github_email: hank@brain-crew.com
+  pat_secret: GH_PAT_HANK
 
 dante:
   name: 신승엽
