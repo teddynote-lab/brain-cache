@@ -120,23 +120,45 @@ TAG_MAP = {
 #  Notion API 클라이언트
 # ══════════════════════════════════════════════════════════════
 
+NOTION_VERSION = "2025-09-03"  # multi-source DB + data_sources 엔드포인트
+
+
 def _notion_headers() -> dict:
     return {
         "Authorization": f"Bearer {NOTION_API_KEY}",
-        "Notion-Version": "2022-06-28",
+        "Notion-Version": NOTION_VERSION,
         "Content-Type": "application/json",
     }
 
 
+def notion_get_data_source_id(db_id: str) -> str:
+    """Database ID → 첫 번째 data source ID. 2025-09-03 이후 query는 data_source 기준."""
+    resp = httpx.get(
+        f"{NOTION_API_BASE}/databases/{db_id}",
+        headers=_notion_headers(),
+        timeout=15,
+    ).json()
+    data_sources = resp.get("data_sources", [])
+    if not data_sources:
+        log.warning("data_sources 가 비어있음 — DB ID 를 그대로 사용: %s (response=%s)", db_id, resp)
+        return db_id
+    ds_id = data_sources[0].get("id", "")
+    if len(data_sources) > 1:
+        log.info("multi-source DB: %d개 중 첫 번째(%s) 사용", len(data_sources), data_sources[0].get("name"))
+    return ds_id
+
+
 def notion_query_db(db_id: str, filter_obj: dict | None = None) -> list:
-    """Notion DB를 쿼리 (페이지네이션 처리)."""
+    """Notion DB를 쿼리 (페이지네이션 처리). 2025-09-03 API는 /data_sources/{id}/query 사용."""
+    data_source_id = notion_get_data_source_id(db_id)
+    log.info("Data source 쿼리: %s", data_source_id)
     results = []
     body: dict = {"page_size": 100}
     if filter_obj:
         body["filter"] = filter_obj
     while True:
         resp = httpx.post(
-            f"{NOTION_API_BASE}/databases/{db_id}/query",
+            f"{NOTION_API_BASE}/data_sources/{data_source_id}/query",
             headers=_notion_headers(),
             json=body,
             timeout=30,
