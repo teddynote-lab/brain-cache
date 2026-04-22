@@ -1,9 +1,12 @@
 jaehun:
   name: 최재훈
-  title: AI Research Engineer, Brain Crew
+  title: LEAD (AI Research Engineer), Brain Crew
   url: https://github.com/ash-hun
   image_url: /img/authors/jaehun.png
   page: true
+  github_login: ash-hun
+  github_email: jh@brain-crew.com
+  pat_secret: GH_PAT_JAEHUN
 
 sungyeon:
   name: 김성연

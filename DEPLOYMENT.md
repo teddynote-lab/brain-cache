@@ -1,4 +1,4 @@
-# Brain Cache 배포 가이드
+# Braincache 배포 가이드
 
 ## 아키텍처
 

@@ -3,7 +3,7 @@ import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
-  title: 'Brain Cache',
+  title: 'Braincache',
   tagline: 'AI Research & Engineering Insights by Brain Crew',
   favicon: 'img/logo.png',
 
@@ -50,7 +50,7 @@ const config: Config = {
           feedOptions: {
             type: ['rss', 'atom'],
             xslt: true,
-            title: 'Brain Cache - Library',
+            title: 'Braincache - Library',
             description: '외부 아티클, 논문 리뷰, 기술 레퍼런스 큐레이션',
           },
           onInlineTags: 'warn',
@@ -83,7 +83,7 @@ const config: Config = {
         feedOptions: {
           type: ['rss', 'atom'],
           xslt: true,
-          title: 'Brain Cache - Lab',
+          title: 'Braincache - Lab',
           description: '직접 실험하고 리서치한 결과물',
         },
         onInlineTags: 'warn',
@@ -107,7 +107,7 @@ const config: Config = {
         feedOptions: {
           type: ['rss', 'atom'],
           xslt: true,
-          title: 'Brain Cache - Projects',
+          title: 'Braincache - Projects',
           description: '회사 프로젝트 회고와 의사결정 기록',
         },
         onInlineTags: 'warn',
@@ -131,7 +131,7 @@ const config: Config = {
         feedOptions: {
           type: ['rss', 'atom'],
           xslt: true,
-          title: 'Brain Cache - Seminar',
+          title: 'Braincache - Seminar',
           description: '팀 내부 세미나 발표자료 및 스터디 정리',
         },
         onInlineTags: 'warn',

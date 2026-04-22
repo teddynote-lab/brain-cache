@@ -1,4 +1,4 @@
-# Tech Blog (Brain Cache)
+# Tech Blog (Braincache)
 
 ## Overview
 - Docusaurus 3 기반 기술 블로그
@@ -32,7 +32,9 @@ source_url: "https://..."  # 외부 참조 시 (선택)
 ---
 ```
 
-본문 구조: `# 제목` → `## TL;DR` (blockquote) → `## Key Takeaways` (bullet list) → `## 상세 내용` (h3 섹션들)
+본문 구조: `# 제목` → `## TL;DR` (blockquote, AI 생성) → Notion 원문 본문 → `## References` (외부 링크 자동 수집)
+
+> 자동 발행 파이프라인은 TL;DR 만 AI 로 생성하고 본문은 Notion 원문을 그대로 파싱합니다. 수동 작성 글은 자유로운 구조로 작성 가능합니다.
 
 ## Authors
 - sungyeon, jaehun, mason, hank, dante, sean, braincrew (authors.yml에 정의)
