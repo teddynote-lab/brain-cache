@@ -105,7 +105,7 @@ function HomepageHero() {
           Brain Crew Tech Blog
         </div>
         <Heading as="h1" className={styles.heroTitle}>
-          <span className={styles.heroTitleAccent}>Brain</span> Cache
+          <span className={styles.heroTitleAccent}>Brain</span>cache
         </Heading>
         <p className={styles.heroSubtitle}>
           <span className={styles.heroPrompt}>$</span>{' '}
