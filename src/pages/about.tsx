@@ -10,7 +10,7 @@ const TEAM = [
   {
     name: '최재훈',
     nameEn: 'Jaehun',
-    role: 'Team Lead',
+    role: 'LEAD (AI Research Engineer)',
     image: '/img/authors/jaehun.png',
     github: 'https://github.com/ash-hun',
   },

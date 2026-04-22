@@ -1,0 +1,12 @@
+# 블로그/사이트 변경은 Sung + Jaehun 둘 다 승인 필요
+# (브랜치 보호 규칙에서 "Require review from Code Owners" + "Required approvals: 2" 활성화)
+*                  @seongyeon1 @ash-hun
+blog/              @seongyeon1 @ash-hun
+lab/               @seongyeon1 @ash-hun
+projects/          @seongyeon1 @ash-hun
+seminar/           @seongyeon1 @ash-hun
+docs/              @seongyeon1 @ash-hun
+scripts/           @seongyeon1 @ash-hun
+.github/           @seongyeon1 @ash-hun
+authors.yml        @seongyeon1 @ash-hun
+docusaurus.config.ts @seongyeon1 @ash-hun

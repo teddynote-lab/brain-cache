@@ -35,4 +35,5 @@ jobs:
           # 작성자별 Fine-grained PAT (fallback: GH_PAT_SUNG)
           GH_PAT_HANK: ${{ secrets.GH_PAT_HANK }}
           GH_PAT_SUNG: ${{ secrets.GH_PAT_SUNG }}
+          GH_PAT_JAEHUN: ${{ secrets.GH_PAT_JAEHUN }}
         run: python scripts/notion-publish.py

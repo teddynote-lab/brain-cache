@@ -5,6 +5,10 @@ on:
     types: [closed]
     branches: [main]
 
+permissions:
+  contents: write
+  pull-requests: read
+
 jobs:
   update-notion:
     if: github.event.pull_request.merged == true && startsWith(github.event.pull_request.head.ref, 'blog/')
@@ -38,3 +42,14 @@ jobs:
             -H "Content-Type: application/json" \
             -d '{"properties":{"Status":{"status":{"name":"Published"}}}}'
           echo "Notion status updated to Published: ${PAGE_ID}"
+
+      - name: Delete merged head branch
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: ${{ github.event.pull_request.head.ref }}
+          REPO: ${{ github.repository }}
+        run: |
+          echo "Deleting merged branch: ${BRANCH}"
+          gh api -X DELETE "repos/${REPO}/git/refs/heads/${BRANCH}" \
+            && echo "Branch deleted: ${BRANCH}" \
+            || echo "Branch delete skipped (already removed or protected): ${BRANCH}"
