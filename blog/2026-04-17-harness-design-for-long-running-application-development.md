@@ -3,7 +3,7 @@ title: "Harness design for long-running application development"
 description: "Anthropic이 공개한 \"하네스 엔지니어링\"은 AI 모델을 감싸는 운영 구조 설계를 의미한다. 장시간 코딩 작업에서 AI는 컨텍스트가 길어지면 조급해지고(context anxiety), 자기 평가에 실패하는 문제를 보인다. 이를 해결하기 위해 GAN에서 영감을 받아 Planner/Generator/Evaluator 3인 체제를 구축하고, 컨텍스트 리셋과"
 slug: harness-design-for-long-running-application-development
 date: 2026-04-17
-authors: [hank]
+authors: [sung]
 tags:
   - ai-agent
   - vibe-coding
