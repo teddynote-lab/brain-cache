@@ -118,6 +118,10 @@ DOC_TYPE_TAG = {
     "projects": "projects",
 }
 
+# 외부 블로그(braincache) 발행이 허용되는 Confidentiality 값.
+# LV02 이상(또는 빈 값)은 자동으로 발행에서 제외.
+ALLOWED_CONFIDENTIALITY = {"LV01"}
+
 TAG_MAP = {
     "Evaluation": "evaluation",
     "Cost-Efficiency": "cost-efficiency",
@@ -702,14 +706,14 @@ def publish(page_id: Optional[str] = None, dry_run: bool = False):
             ):
                 pages_with_hub.append((page, hub_name))
 
-    # 2. Confidentiality 필터
+    # 2. Confidentiality 필터 — LV01 화이트리스트 (LV02+ 또는 빈 값은 차단)
     filtered: list[tuple[dict, Optional[str]]] = []
     for page, hub_name in pages_with_hub:
         props = page.get("properties", {})
         conf = get_property(props, "Confidentiality")
-        if conf == "Internal Use Only":
+        if conf not in ALLOWED_CONFIDENTIALITY:
             title = get_title(props)
-            log.info("SKIP (Internal Use Only): %s", title)
+            log.info("SKIP (Confidentiality=%s): %s", conf or "(empty)", title)
             continue
         filtered.append((page, hub_name))
 
