@@ -119,8 +119,9 @@ DOC_TYPE_TAG = {
 }
 
 # 외부 블로그(braincache) 발행이 허용되는 Confidentiality 값.
-# LV02 이상(또는 빈 값)은 자동으로 발행에서 제외.
-ALLOWED_CONFIDENTIALITY = {"LV01"}
+# LV03 이상(또는 빈 값)은 자동으로 발행에서 제외.
+# LV02 는 PR 리뷰·팀장 승인이 게이트 역할이므로 코드 단계에선 통과시킴.
+ALLOWED_CONFIDENTIALITY = {"LV01", "LV02"}
 
 TAG_MAP = {
     "Evaluation": "evaluation",

@@ -1,6 +1,6 @@
 > 💡 frontmatter · 글 제목 · TL;DR · References 는 발행 시 자동 생성됩니다. 본문만 작성하세요.
 > 
-> 🔒 외부 블로그 발행은 `Confidentiality` 가 `LV01` 인 글만 가능합니다. `LV02` 이상은 자동으로 발행에서 제외됩니다 — 고객사·내부 시스템명 등 민감 정보가 포함되면 등급을 올리세요.
+> 🔒 외부 블로그 발행은 `Confidentiality` 가 `LV01`·`LV02` 인 글만 가능합니다. `LV03` 이상은 자동으로 발행에서 제외됩니다 — 민감 정보가 포함되면 등급을 올리세요. LV02 는 PR 리뷰·팀장 승인이 게이트 역할을 합니다. ([정보 분류 가이드](https://www.notion.so/teddynote-lab/34eadc4b255380e69c4bf5d5b36af32a?source=copy_link))
 
 ## 프로젝트 개요
 
