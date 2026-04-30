@@ -118,10 +118,17 @@ DOC_TYPE_TAG = {
     "projects": "projects",
 }
 
-# 외부 블로그(braincache) 발행이 허용되는 Confidentiality 값.
+# 외부 블로그(braincache) 발행이 허용되는 Confidentiality 값 (정규화된 형태).
+# 비교 시 _normalize_confidentiality() 로 대소문자·공백을 흡수해서 매칭하므로
+# 노션 측 표기가 "LV01" / "Lv 01" / "lv 01" 어느 쪽이어도 통과.
 # LV03 이상(또는 빈 값)은 자동으로 발행에서 제외.
 # LV02 는 PR 리뷰·팀장 승인이 게이트 역할이므로 코드 단계에선 통과시킴.
 ALLOWED_CONFIDENTIALITY = {"LV01", "LV02"}
+
+
+def _normalize_confidentiality(value) -> str:
+    """대소문자·공백 차이를 흡수 (예: 'Lv 01' → 'LV01')."""
+    return (value or "").upper().replace(" ", "")
 
 TAG_MAP = {
     "Evaluation": "evaluation",
@@ -707,12 +714,13 @@ def publish(page_id: Optional[str] = None, dry_run: bool = False):
             ):
                 pages_with_hub.append((page, hub_name))
 
-    # 2. Confidentiality 필터 — LV01 화이트리스트 (LV02+ 또는 빈 값은 차단)
+    # 2. Confidentiality 필터 — LV01·LV02 화이트리스트 (LV03+ 또는 빈 값은 차단)
+    # 정규화 비교로 노션 표기 차이("Lv 01" / "LV01" / "lv 01") 흡수.
     filtered: list[tuple[dict, Optional[str]]] = []
     for page, hub_name in pages_with_hub:
         props = page.get("properties", {})
         conf = get_property(props, "Confidentiality")
-        if conf not in ALLOWED_CONFIDENTIALITY:
+        if _normalize_confidentiality(conf) not in ALLOWED_CONFIDENTIALITY:
             title = get_title(props)
             log.info("SKIP (Confidentiality=%s): %s", conf or "(empty)", title)
             continue
