@@ -2,7 +2,7 @@
 
 ## Overview
 - Docusaurus 3 기반 기술 블로그
-- URL: https://teddynote-lab.github.io/brain-cache/
+- URL: https://braincrew-lab.github.io/brain-cache/
 - 배포: GitHub Pages (main push 시 자동, `.github/workflows/deploy.yml`)
 
 ## Blog Structure

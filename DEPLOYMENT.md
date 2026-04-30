@@ -134,7 +134,7 @@ vercel alias <배포URL> brain-cache.vercel.app
 |------|-----|
 | Production | https://brain-cache.vercel.app |
 | Vercel 대시보드 | https://vercel.com/seongyeon1s-projects/tech-blog |
-| GitHub Repo | https://github.com/teddynote-lab/brain-cache |
+| GitHub Repo | https://github.com/braincrew-lab/brain-cache |
 
 ## 사이트 구조
 

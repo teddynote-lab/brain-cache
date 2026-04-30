@@ -11,10 +11,10 @@ const config: Config = {
     v4: true,
   },
 
-  url: 'https://teddynote-lab.github.io',
+  url: 'https://braincrew-lab.github.io',
   baseUrl: '/brain-cache/',
 
-  organizationName: 'teddynote-lab',
+  organizationName: 'braincrew-lab',
   projectName: 'brain-cache',
   trailingSlash: false,
 
@@ -179,7 +179,7 @@ const config: Config = {
         {to: '/posts?tab=Seminar', label: 'Seminar & Paper', position: 'left', activeBaseRegex: 'NEVER_MATCH_THIS'},
         {to: '/about', label: 'About', position: 'left'},
         {
-          href: 'https://github.com/teddynote-lab',
+          href: 'https://github.com/braincrew-lab',
           label: 'GitHub',
           position: 'right',
         },
@@ -198,11 +198,11 @@ const config: Config = {
         },
         {
           label: 'GitHub',
-          href: 'https://github.com/teddynote-lab',
+          href: 'https://github.com/braincrew-lab',
         },
         {
           label: 'RSS Feed',
-          href: 'https://teddynote-lab.github.io/brain-cache/blog/rss.xml',
+          href: 'https://braincrew-lab.github.io/brain-cache/blog/rss.xml',
         },
       ],
       copyright: `© ${new Date().getFullYear()} 브레인크루(주) · 대표이사 이경록<br/>경기도 성남시 분당구 정자로 2, 1602호 · dev@brain-crew.com`,
