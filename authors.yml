@@ -18,6 +18,16 @@ sungyeon:
   github_email: sung@brain-crew.com
   pat_secret: GH_PAT_SUNG
 
+sung:
+  name: 김성연
+  title: AI Research Engineer, Brain Crew
+  url: https://github.com/seongyeon1
+  image_url: /img/authors/sungyeon.jpeg
+  page: false
+  github_login: seongyeon1
+  github_email: sung@brain-crew.com
+  pat_secret: GH_PAT_SUNG
+
 mason:
   name: 강민석
   title: AI Research Engineer, Brain Crew
