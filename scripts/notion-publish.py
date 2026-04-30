@@ -78,6 +78,13 @@ AUTHOR_ID_MAP = {
     "2bcd872b-594c-816f-86db-00020ef03ddd": "hank",
 }
 
+# 노션 user.name → authors.yml 키 (이메일 미공개·integration 권한 부족 시 fallback).
+# 노션 워크스페이스에 표시되는 이름 그대로 사용.
+AUTHOR_NAME_MAP = {
+    "Sung Kim": "sungyeon",
+    "김성연":   "sungyeon",
+}
+
 # ── 작성자별 Git 아이덴티티 + PAT Secret 이름 ──────────────
 # (commit_author_name, commit_author_email, pat_env_name)
 # 커밋 아바타가 GitHub 프로필로 연결되려면 email이 해당 계정의 verified email이어야 합니다.
@@ -508,15 +515,32 @@ def get_property(props: dict, name: str) -> str | list | None:
 
 
 def resolve_authors(props: dict) -> str:
+    """Publisher 속성 → authors.yml 키 (쉼표 구분). 매핑 우선순위: email → id → name.
+
+    노션 integration 이 사용자 이메일을 응답에 포함하지 않거나, 게스트로 초대된
+    사용자의 경우 email 이 빈 문자열로 오는 케이스가 있어 name fallback 추가.
+    매핑 실패 시 디버그 로그를 남기고 'braincrew' 로 떨어진다.
+    """
     people = get_property(props, "Publisher") or []
     if not isinstance(people, list):
         return "braincrew"
     keys = []
     for person in people:
         email = person.get("person", {}).get("email", "")
-        key = AUTHOR_MAP.get(email) or AUTHOR_ID_MAP.get(person.get("id", ""))
+        person_id = person.get("id", "")
+        name = person.get("name", "")
+        key = (
+            AUTHOR_MAP.get(email)
+            or AUTHOR_ID_MAP.get(person_id)
+            or AUTHOR_NAME_MAP.get(name)
+        )
         if key:
             keys.append(key)
+        else:
+            log.warning(
+                "Publisher 매핑 실패 → braincrew fallback. name=%r email=%r id=%r",
+                name, email, person_id,
+            )
     return ", ".join(keys) if keys else "braincrew"
 
 
