@@ -1,16 +1,17 @@
 #!/usr/bin/env python3
-"""Notion Document Hub → Braincache 블로그 자동 발행 스크립트.
+"""Notion 3 Hub (Documents / Projects / Seminar) → Braincache 블로그 자동 발행 스크립트.
 
-Notion DB에서 Status="Publish" 인 글을 가져와서:
-1. Markdown 변환 + 이미지 다운로드
-2. LLM으로 블로그 포맷 정리
-3. Git 브랜치 생성 + PR 생성
-4. Notion 상태를 "In Review"로 업데이트
+각 Hub DB 에서 Status="Publish" 인 글을 가져와서:
+1. Markdown 변환 + 이미지 다운로드 (본문은 Notion 원문 그대로 보존)
+2. LLM 으로 **TL;DR 만** 생성 (본문은 절대 가공하지 않음)
+3. Hub / Document Type 에 따라 blog/lab/projects/seminar 디렉토리 분기
+4. Git 브랜치 생성 + PR 생성 (TL;DR 이 PR Summary 로도 사용)
+5. Notion 상태를 "In Review" 로 업데이트
 
 Usage:
-    python scripts/notion-publish.py                  # 실행
+    python scripts/notion-publish.py                  # 실행 (3 Hub 전부 순회)
     python scripts/notion-publish.py --dry-run        # 미리보기만
-    python scripts/notion-publish.py --id <page_id>   # 특정 페이지만
+    python scripts/notion-publish.py --id <page_id>   # 특정 페이지만 (Hub 무관)
 """
 
 from __future__ import annotations
@@ -37,8 +38,27 @@ log = logging.getLogger(__name__)
 
 NOTION_API_BASE = "https://api.notion.com/v1"
 NOTION_API_KEY = os.environ.get("NOTION_API_KEY", "")
-_DEFAULT_DB_ID = "97c4b169-cb88-83fd-b98b-8137e22c1b90"
-DOCUMENT_HUB_DB_ID = (os.environ.get("NOTION_DB_ID") or "").strip() or _DEFAULT_DB_ID
+
+# Hub 별 Notion DB ID 환경변수
+#   - documents : 외부 큐레이션·튜토리얼·논문(paper 는 seminar 로) 등 (Doc Type 으로 라우팅)
+#   - projects  : 프로젝트 회고 (전부 projects/ 디렉토리)
+#   - seminar   : 세미나·논문 리뷰 (전부 seminar/ 디렉토리)
+HUB_CONFIG: dict[str, dict] = {
+    "documents": {
+        "db_id_env": "NOTION_DB_DOCUMENTS",
+        # Document Type 속성으로 분기. DOC_TYPE_CONFIG 매핑 사용.
+    },
+    "projects": {
+        "db_id_env": "NOTION_DB_PROJECTS",
+        "force_doc_type": "projects",
+        "force_output_dir": "projects",
+    },
+    "seminar": {
+        "db_id_env": "NOTION_DB_SEMINAR",
+        # Document Type (paper, inner-seminar 등) 그대로 두되 출력은 모두 seminar/
+        "force_output_dir": "seminar",
+    },
+}
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
@@ -67,7 +87,7 @@ AUTHOR_GIT_IDENTITY = {
     "jaehun":   ("최재훈",  "jh@brain-crew.com",   "GH_PAT_JAEHUN"),
 }
 DEFAULT_PAT_ENV = "GH_PAT_SUNG"
-REPO_SLUG = "teddynote-lab/brain-cache"
+REPO_SLUG = "braincrew-lab/brain-cache"
 
 # ── 필수 리뷰어 (author 제외하고 request) ──────────────────
 # 블로그 정책: Sung + Jaehun 둘 다 승인해야 머지 가능.
@@ -80,11 +100,12 @@ REQUIRED_REVIEWERS = {
 
 DOC_TYPE_CONFIG = {
     "reference": {"output_dir": "blog"},
-    "paper": {"output_dir": "blog"},
+    "paper": {"output_dir": "seminar"},
     "inner-seminar": {"output_dir": "seminar"},
     "tutorial": {"output_dir": "blog"},
     "knowledge": {"output_dir": "lab"},
     "conference": {"output_dir": "blog"},
+    "projects": {"output_dir": "projects"},
 }
 
 DOC_TYPE_TAG = {
@@ -94,6 +115,7 @@ DOC_TYPE_TAG = {
     "tutorial": "tutorial",
     "knowledge": "knowledge",
     "conference": "conference",
+    "projects": "projects",
 }
 
 TAG_MAP = {
@@ -658,41 +680,55 @@ def publish(page_id: Optional[str] = None, dry_run: bool = False):
         log.error("NOTION_API_KEY 환경변수가 필요합니다.")
         sys.exit(1)
 
-    # 1. Notion DB 쿼리
+    # 1. 페이지 수집 (--id 단일 페이지 또는 3 Hub 순회)
+    pages_with_hub: list[tuple[dict, Optional[str]]] = []
     if page_id:
         resp = httpx.get(f"{NOTION_API_BASE}/pages/{page_id}", headers=_notion_headers(), timeout=15).json()
-        pages = [resp]
+        pages_with_hub.append((resp, None))
     else:
-        log.info("Document Hub DB 쿼리: %s", DOCUMENT_HUB_DB_ID)
-        pages = notion_query_db(
-            DOCUMENT_HUB_DB_ID,
-            filter_obj={
-                "and": [
-                    {"property": "Status", "status": {"equals": "Publish"}},
-                ]
-            },
-        )
+        for hub_name, hub_cfg in HUB_CONFIG.items():
+            db_id = (os.environ.get(hub_cfg["db_id_env"]) or "").strip()
+            if not db_id:
+                log.warning("[%s Hub] %s 환경변수가 비어있음, 건너뜀", hub_name, hub_cfg["db_id_env"])
+                continue
+            log.info("[%s Hub] DB 쿼리: %s", hub_name, db_id)
+            for page in notion_query_db(
+                db_id,
+                filter_obj={
+                    "and": [
+                        {"property": "Status", "status": {"equals": "Publish"}},
+                    ]
+                },
+            ):
+                pages_with_hub.append((page, hub_name))
 
     # 2. Confidentiality 필터
-    filtered = []
-    for page in pages:
+    filtered: list[tuple[dict, Optional[str]]] = []
+    for page, hub_name in pages_with_hub:
         props = page.get("properties", {})
         conf = get_property(props, "Confidentiality")
         if conf == "Internal Use Only":
             title = get_title(props)
             log.info("SKIP (Internal Use Only): %s", title)
             continue
-        filtered.append(page)
+        filtered.append((page, hub_name))
 
     log.info("처리할 문서: %d건 (필터 후)", len(filtered))
     if not filtered:
         log.info("발행할 문서가 없습니다.")
         return
 
-    for i, page in enumerate(filtered, 1):
+    for i, (page, hub_name) in enumerate(filtered, 1):
         props = page["properties"]
         title = get_title(props)
-        doc_type = (get_property(props, "Document Type") or "reference").lower().replace(" ", "-")
+
+        # Hub 별 강제 매핑 적용
+        hub_cfg = HUB_CONFIG.get(hub_name) if hub_name else None
+        force_doc_type = (hub_cfg or {}).get("force_doc_type")
+        force_output_dir = (hub_cfg or {}).get("force_output_dir")
+
+        doc_type_raw = (get_property(props, "Document Type") or "reference").lower().replace(" ", "-")
+        doc_type = force_doc_type or doc_type_raw
         categories = get_property(props, "Category") or []
         authors = resolve_authors(props)
         upload_date = get_property(props, "Upload Date") or datetime.now().strftime("%Y-%m-%d")
@@ -760,7 +796,7 @@ def publish(page_id: Optional[str] = None, dry_run: bool = False):
             blog_body = f"## TL;DR\n{tldr_block}\n\n{content.strip()}{references_section}\n"
             full_md = f"{frontmatter}# {title}\n\n{blog_body}"
 
-            output_dir = DOC_TYPE_CONFIG.get(doc_type, DOC_TYPE_CONFIG["reference"])["output_dir"]
+            output_dir = force_output_dir or DOC_TYPE_CONFIG.get(doc_type, DOC_TYPE_CONFIG["reference"])["output_dir"]
             rel_path = f"{output_dir}/{file_date}-{slug}.md"
             out_file = PROJECT_ROOT / rel_path
 
