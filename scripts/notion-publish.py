@@ -76,6 +76,7 @@ AUTHOR_MAP = {
 
 AUTHOR_ID_MAP = {
     "2bcd872b-594c-816f-86db-00020ef03ddd": "hank",
+    "268d872b-594c-8103-b4e1-0002d81ffd66": "sungyeon",  # Sung Kim — integration 권한 부족으로 email/name 미공개, ID 만 전달됨
 }
 
 # 노션 user.name → authors.yml 키 (이메일 미공개·integration 권한 부족 시 fallback).
