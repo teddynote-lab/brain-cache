@@ -83,7 +83,7 @@ function HeroSection() {
           <a href="https://brain-crew.com" target="_blank" rel="noopener noreferrer" className={styles.heroPrimary}>
             Homepage
           </a>
-          <a href="https://github.com/teddynote-lab" target="_blank" rel="noopener noreferrer" className={styles.heroSecondary}>
+          <a href="https://github.com/braincrew-lab" target="_blank" rel="noopener noreferrer" className={styles.heroSecondary}>
             GitHub
           </a>
         </div>

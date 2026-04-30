@@ -24,7 +24,7 @@ function GiscusComments(): JSX.Element {
   return (
     <div style={{marginTop: '2rem'}}>
       <Giscus
-        repo="teddynote-lab/brain-cache"
+        repo="braincrew-lab/brain-cache"
         repoId="R_kgDORwNP_Q"
         category="General"
         categoryId="DIC_kwDORwNP_c4C7CcZ"
