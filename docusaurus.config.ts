@@ -5,7 +5,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
   title: 'Braincache',
   tagline: 'AI Research & Engineering Insights by Brain Crew',
-  favicon: 'img/logo.png',
+  favicon: 'img/favicon.png',
 
   future: {
     v4: true,
