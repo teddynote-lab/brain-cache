@@ -49,6 +49,13 @@ const TEAM = [
     image: '/img/authors/sean.jpg',
     github: 'https://github.com/ysksean',
   },
+  {
+    name: '김형섭',
+    nameEn: 'Harry',
+    role: 'AI Research Engineer',
+    image: '/img/authors/harry.jpg',
+    github: 'https://github.com/Hyeongseob91',
+  },
 ];
 
 const FOCUS_AREAS = [
