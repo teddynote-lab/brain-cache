@@ -54,6 +54,9 @@ dante:
   email: dante@brain-crew.com
   image_url: /img/authors/dante.png
   page: true
+  github_login: syshin0116
+  github_email: dante@brain-crew.com
+  pat_secret: GH_PAT_DANTE
 
 sean:
   name: 김유신
@@ -62,9 +65,23 @@ sean:
   email: sean@brain-crew.com
   image_url: /img/authors/sean.jpg
   page: true
+  github_login: ysksean
+  github_email: sean@brain-crew.com
+  pat_secret: GH_PAT_SEAN
+
+harry:
+  name: 김형섭
+  title: AI Research Engineer, Brain Crew
+  url: https://github.com/Hyeongseob91
+  email: harry@brain-crew.com
+  image_url: /img/authors/harry.jpg
+  page: true
+  github_login: Hyeongseob91
+  github_email: harry@brain-crew.com
+  pat_secret: GH_PAT_HARRY
 
 braincrew:
-  name: Brain Crew RAG Team
+  name: Braincrew
   title: AI Research & Engineering
   url: https://brain-crew.com
   image_url: /img/logo.png
